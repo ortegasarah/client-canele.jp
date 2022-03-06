@@ -1,5 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-import styled from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
  const GlobalStyle = createGlobalStyle`
     body {
@@ -72,4 +71,10 @@ export const ButtonGreen = styled.button`
         }
 `
 
+export const AbsoluteCenter = css`
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+`;
 export default GlobalStyle

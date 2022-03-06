@@ -3,14 +3,23 @@ import { Routes, Route } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
+import Modal from "./components/Modal/Modal";
+import ModalInner from "./components/ModalInner/ModalInner";
+
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
-import GlobalStyle from './globalStyles';
+import GlobalStyle, { ButtonBlack } from './globalStyles';
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal((showModal) => !showModal);
+  };
+
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -54,9 +63,14 @@ export default function App() {
   return (
     <div className="App">
       <GlobalStyle />
+      {showModal && (
+        <Modal toggleModal={toggleModal}>
+          <ModalInner />
+        </Modal>
+      )}
       <Navbar handleLogout={handleLogout} user={user} />
       <Landing />
-
+      <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack>
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />

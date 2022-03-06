@@ -4,7 +4,7 @@ import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
 import { GlobalStyle, ButtonBlack, ButtonGreen } from '../../globalStyles';
 import { LandingImg, LandingImgBox } from './styles';
-
+import RotateImage from "../../assets/landingBox.jpg"
 const Landing = () => {
   return (
     <>

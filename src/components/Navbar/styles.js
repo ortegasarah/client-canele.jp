@@ -10,6 +10,29 @@ export const Header = styled.header`
   border-bottom: 1px solid #000;
 `
 
+export const Menu = styled.li `
+  display:inline-block;
+  cursor:pointer;
+  margin: 0;
+  padding: 0 10px;
+  list-style: none;
+  background: 
+    linear-gradient(currentColor 0 0) 
+    var(--p, 0) 100% /var(--d, 0) 3px 
+  no-repeat;
+  transition: 0.3s, background-position 0s 0.3s;
+}
+&:hover {
+  --d: 100%;
+  --p: 100%;
+}
+&:a:hover {
+  text-decoration: none;
+
+}
+
+`
+
 // .nav__projectName {
 //   color: #e4f9ff;
 //   text-decoration: none;
