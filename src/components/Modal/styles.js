@@ -10,6 +10,7 @@ export const Modal = styled.div`
   max-width: 800px;
   width: calc(100vw - 60px);
   z-index: 3;
+  position: fixed;
 
   @media (max-width: 700px) {
     padding: 30px;

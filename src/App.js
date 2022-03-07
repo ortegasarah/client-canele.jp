@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Landing from "./components/Landing/Landing";
 import Modal from "./components/Modal/Modal";
 import ModalInner from "./components/ModalInner/ModalInner";
+import Instagram from "./components/Instagram/Instagram";
+import Footer from "./components/Footer/Footer";
 
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
@@ -71,11 +73,14 @@ export default function App() {
       <Navbar handleLogout={handleLogout} user={user} />
       <Landing />
       <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack>
+      <Instagram />
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
+
+      <Footer />
     </div>
   );
 }
