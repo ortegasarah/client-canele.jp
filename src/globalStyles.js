@@ -16,6 +16,7 @@ import styled, { createGlobalStyle, css } from "styled-components";
     p {
         font-family: 'DM Sans', sans-serif;
         color: #000;
+        font-size: 20px;
     }
 
     a {
@@ -45,11 +46,12 @@ export const ButtonBlack = styled.button`
     padding: 0.5em 2em;
     border: 1px solid #000;
     background-color: #fff;
-
+    width: fit-content;
+    
     &:hover {
         color: #fff;
         background-color: #000;
-        }
+    }
 `
 
 export const ButtonGreen = styled.button`
@@ -64,6 +66,7 @@ export const ButtonGreen = styled.button`
     padding: 0.5em 2em;
     border: 1px solid #0D8F44;
     background-color: #fff;
+    width: fit-content;
 
     &:hover {
         color: #fff;
