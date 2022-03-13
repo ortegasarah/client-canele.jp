@@ -12,6 +12,10 @@ import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 import GlobalStyle, { ButtonBlack } from './globalStyles';
+import HomePage from "./pages/HomePage";
+import UserProfile from "./pages/UserProfile";
+import Sidebar from "./components/Sidebar/Sidebar";
+
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -21,6 +25,12 @@ export default function App() {
   const toggleModal = () => {
     setShowModal((showModal) => !showModal);
   };
+
+  //to toggle burger menu
+  const [ isOpen, setIsOpen ] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
 
 
   useEffect(() => {
@@ -62,6 +72,9 @@ export default function App() {
   if (isLoading) {
     return <LoadingComponent />;
   }
+
+
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -70,17 +83,18 @@ export default function App() {
           <ModalInner />
         </Modal>
       )}
-      <Navbar handleLogout={handleLogout} user={user} />
-      <Landing />
-      <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack>
-      <Instagram />
+      <Sidebar isOpen={isOpen} toggle={toggle}/>
+      <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
+      {/* <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack> */}
+      {/* <HomePage /> */}
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
-
       <Footer />
+
+
     </div>
   );
 }

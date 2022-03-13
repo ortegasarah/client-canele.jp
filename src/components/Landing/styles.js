@@ -7,7 +7,7 @@ import imageBanner3 from '../../assets/landing-img.jpg';
 export const LandingImg = styled.div `
   background-image: url(${imageBanner});
   background-size:cover;
-  background-position: top center;
+  background-position: center center;
   border-radius: 20px;
   width: 60%;
   height: 600px;
@@ -16,7 +16,7 @@ export const LandingImg = styled.div `
 export const LandingImgBox = styled.div`
   background-image: url(${imageBanner2});
   background-size:cover;
-  background-position: left center;
+  background-position: center center;
   border-radius: 20px;
   width: 50%;
   height: 600px;
@@ -33,9 +33,7 @@ export const LandingImgBox = styled.div`
 export const FirstSection = styled.div `
   display: flex;
   flex-direction: column;
-  width: 40%;
-
-}
+  width: 45%;
   `
 
 export const Wrapper = styled.section `
@@ -45,7 +43,7 @@ export const Wrapper = styled.section `
   align-items: center;
 
   h2 {
-    font-family: 'Sansita', sans-serif;
+    /* font-family: 'Sansita', sans-serif; */
     font-size: 40px;
     font-weight: light;
     margin: 10px;
@@ -55,12 +53,11 @@ export const Wrapper = styled.section `
   p {
     width: 70%;
   }
-  `
+`
 
 export const TitleLanding = styled.h1 `
-  font-family: 'Sansita', sans-serif;
-  font-size: 5em;
-  width: 50%;
+  font-size: 8em;
+  width: 80%;
   margin: 10px 0;
 `
 // export const RotateImg = styled.img.attrs({

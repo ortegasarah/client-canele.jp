@@ -9,8 +9,13 @@ import styled, { createGlobalStyle, css } from "styled-components";
     }
 
     h1 {
-        font-family: 'Sansita', sans-serif;
-        color: #000;
+        /* font-family: 'Sansita', sans-serif; */
+        font-family: Open-Sans, Helvetica, Sans-Serif;
+        color: black;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-width: 1.4px;
+        -webkit-text-stroke-color: black;
+        letter-spacing: .2rem;
     }
 
     p {
