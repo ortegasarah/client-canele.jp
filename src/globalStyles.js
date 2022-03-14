@@ -4,7 +4,7 @@ import styled, { createGlobalStyle, css } from "styled-components";
     * {
         margin: 0;
         padding: 0;
-        background: #fff;
+        /* background-color: #fff; */
         font-family: Open-Sans, Helvetica, Sans-Serif;
         overflow-x: hidden;
 
@@ -16,8 +16,7 @@ import styled, { createGlobalStyle, css } from "styled-components";
         color: #000;
 
     }
-  }
-    }
+
 
     p {
         font-family: 'DM Sans', sans-serif;
