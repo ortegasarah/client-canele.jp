@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, BG, Close } from "./styles";
+import { Modal, BG, Close } from "./ModalStyles";
 const ModalComponent = ({ toggleModal, children }) => (
   <>
     <Modal>

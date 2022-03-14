@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik, Form, useField } from "formik";
-import { Input, Label, Error, Submit } from "./styles";
+import { Input, Label, Error, Submit } from "./FormStyles";
 import { ButtonGreen } from '../../globalStyles';
 
 const InputComponent = ({ label, ...props }) => {
@@ -45,7 +45,7 @@ const FormComponent = ({ handleSuccess }) => {
             label="Email"
             autoComplete="off"
           />
-          <ButtonGreen type="submit"> Subscribe </ButtonGreen>
+          <ButtonGreen type="submit"> Submit </ButtonGreen>
         </Form>
       )}
     </Formik>

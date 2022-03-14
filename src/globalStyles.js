@@ -1,21 +1,22 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 
  const GlobalStyle = createGlobalStyle`
-    body {
+    * {
         margin: 0;
         padding: 0;
         background: #fff;
         font-family: Open-Sans, Helvetica, Sans-Serif;
+        overflow-x: hidden;
+
     }
 
     h1 {
         /* font-family: 'Sansita', sans-serif; */
         font-family: Open-Sans, Helvetica, Sans-Serif;
-        color: black;
-        -webkit-text-fill-color: white;
-        -webkit-text-stroke-width: 1.4px;
-        -webkit-text-stroke-color: black;
-        letter-spacing: .2rem;
+        color: #000;
+
+    }
+  }
     }
 
     p {
@@ -57,6 +58,10 @@ export const ButtonBlack = styled.button`
         color: #fff;
         background-color: #000;
     }
+
+    @media screen and (max-width: 1420px){
+        margin: 3rem auto;
+        }
 `
 
 export const ButtonGreen = styled.button`
@@ -77,6 +82,10 @@ export const ButtonGreen = styled.button`
         color: #fff;
         background-color: #0D8F44;
         }
+        
+    @media screen and (max-width: 1420px){
+    margin: 3rem auto;
+    }
 `
 
 export const AbsoluteCenter = css`

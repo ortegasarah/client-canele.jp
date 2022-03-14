@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, H3, P, H4, SuccessContainer } from "./styles";
+import { Container, H3, P, H4, SuccessContainer } from "./ModalInnerStyles";
 import Form from "../Form/Form"
 
 const Input = ({ handleSuccess }) => (

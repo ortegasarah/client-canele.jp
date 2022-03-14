@@ -83,7 +83,7 @@ export default function App() {
           <ModalInner />
         </Modal>
       )}
-      <Sidebar isOpen={isOpen} toggle={toggle}/>
+      {/* <Sidebar isOpen={isOpen} toggle={toggle}/> */}
       <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
       {/* <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack> */}
       {/* <HomePage /> */}

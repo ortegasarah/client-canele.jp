@@ -1,6 +1,6 @@
 import React from "react";
 import logo2 from "../../assets/logo_full.jpg";
-import { SectionFooter } from "./styles"
+import { SectionFooter } from "./FooterStyles"
 
 
 const locations = document.querySelectorAll("section.times.div")
@@ -16,7 +16,6 @@ const Footer = () => {
                         <img src={logo2} alt="" width="200px" />
 
             <SectionFooter>
-                <div>
                     <h4>Account</h4>
                     <p>Sign Up</p>
                     <p>Log in</p>
@@ -27,7 +26,6 @@ const Footer = () => {
                     <h4>Resources</h4>
                     <p>F.A.Q</p>
                     <p>Contact</p>
-                </div>
             </SectionFooter>
         </>
     )

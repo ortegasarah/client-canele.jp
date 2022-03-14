@@ -7,7 +7,7 @@ export const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: #FBF8F1;
+  background-color: #FBF8F1;
   font-weight: 600;
   font-size: 1rem;
   border-bottom: 1px solid #000;
@@ -37,7 +37,14 @@ export const NavLogo = styled(LinkR)`
   display: flex;
   color: #fff;
   justify-self: flex-start;
-  width: 10px;
+
+  img {
+    width: 300px;
+  }
+  /* width: 10px; */
+  @media screen and (max-width: 760px){
+   
+}
 
 `
 
@@ -53,6 +60,7 @@ display: none;
   font-size: 1.8rem;
   cursor: pointer;
   color: #000;
+
 }
 `
 
@@ -63,6 +71,7 @@ list-style: none;
 text-align: center;
 margin-right: -22px;
 
+
 @media screen and (max-width: 760px){
   display: none;
 }
@@ -70,7 +79,6 @@ margin-right: -22px;
 
 export const NavItem = styled.li`
 height: 80px;
-
 color: #000;
 display: flex;
 align-items: center;

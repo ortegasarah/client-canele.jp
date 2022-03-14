@@ -4,6 +4,7 @@ import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import UserProfile from "../pages/UserProfile";
 import ProtectedPage from "../pages/ProtectedPage";
+import Auth from "../pages/Auth"
 import * as PATHS from "../utils/paths";
 
 const routes = (props) => {
@@ -25,6 +26,10 @@ const routes = (props) => {
     {
       path: PATHS.LOGINPAGE,
       element: <Login {...props} />,
+    },
+    {
+      path: PATHS.AUTH,
+      element: <Auth {...props} />,
     },
     {
       path: PATHS.PROTECTEDPAGE,

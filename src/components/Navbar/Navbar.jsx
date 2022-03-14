@@ -60,7 +60,7 @@ const Navbar = ( props, {toggle}) => {
               <Link to={PATHS.SIGNUPPAGE} className="authLink">
                 <img src={signup} alt="signup" height="40px" />
               </Link>
-              <Link to={PATHS.LOGINPAGE} className="authLink">
+              <Link to={PATHS.AUTH} className="authLink">
                 Log In
               </Link>
               <img src={cart} alt="cart" height="40px" />
