@@ -70,14 +70,14 @@ export const Wrapper = styled.section `
     line-height: 1.5em;
     @media screen and (max-width: 700px){
       font-size: 2em;
-  }
+  }}
   
   p {
     width: 70%;
   }
 `
 
-export const TitleLanding = styled.h1 `
+export const TitleLanding = styled.h1`
   font-size: 8em;
   width: 80%;
   margin: 10px 0;
