@@ -15,6 +15,17 @@ const Product = () => {
         <Detail>
             <H3>NamOfProfuct</H3>
             <H4>Description 円 Price</H4>
+            
+{/* <select>
+    {[...Array(product.count).keys()].map(
+        (x) => (
+            <option key = { x + 1 }>
+                { x + 1 }
+            </option>
+        )
+    )}
+</select> */}
+
             <ButtonGreen>Add to Cart</ButtonGreen>
         </Detail>
     </Link>

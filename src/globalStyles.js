@@ -64,7 +64,6 @@ export const ButtonBlack = styled.button`
     border: 1px solid #000;
     background-color: #fff;
     width: fit-content;
-    margin: 3rem 0;
     
     &:hover {
         color: #fff;
@@ -89,7 +88,6 @@ export const ButtonGreen = styled.button`
     border: 1px solid #0D8F44;
     background-color: #fff;
     width: fit-content;
-    margin: 2rem 0;
 
 
     &:hover {
