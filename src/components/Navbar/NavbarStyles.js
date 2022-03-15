@@ -3,19 +3,20 @@ import { Link as LinkR } from "react-router-dom";
 
 export const Nav = styled.nav`
   // display: flex;
-  // padding: 2em;
+  padding: 2em 0;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   background-color: #FBF8F1;
   font-weight: 600;
   font-size: 1rem;
-  border-bottom: 1px solid #000;
+  border-bottom: 1.5px solid #000;
   position: sticky;
   width: 100%;
-  margin: 0; 
+  margin: 0 auto; 
   top: 0;
   z-index: 999;
+
 
   @media screen and (max-width: 960px) {
     transition: 0,8s all ease;

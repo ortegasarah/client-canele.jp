@@ -16,6 +16,10 @@ export const Detail = styled.div`
 export const Li = styled.li`
 margin: 0 auto;
 padding: 0;
+
+a:link{
+    text-decoration: none;
+}
 `
 
 export const H3 = styled.h3 `

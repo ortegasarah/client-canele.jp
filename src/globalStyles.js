@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle, css } from "styled-components";
+import { Link as LinkB } from "react-router-dom";
 
  const GlobalStyle = createGlobalStyle`
     * {
@@ -14,7 +15,6 @@ import styled, { createGlobalStyle, css } from "styled-components";
         /* font-family: 'Sansita', sans-serif; */
         font-family: Open-Sans, Helvetica, Sans-Serif;
         color: #000;
-
     }
 
 
@@ -38,6 +38,18 @@ import styled, { createGlobalStyle, css } from "styled-components";
     }
 `;
  
+export const H1Stroke = styled.h1`
+margin: 0 auto;
+padding: 10px 0 ;
+font-weight: 700;
+font-size: 50px;
+text-align: center;
+color: #000;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color: black;
+`
+
 
 export const ButtonBlack = styled.button`
     border-radius: 44px;

@@ -11,6 +11,5 @@ align-items: center;
 z-index: -100000;
 
 h4, p {
-    background: #FBF8F1;
 }
 `

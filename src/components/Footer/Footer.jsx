@@ -16,17 +16,30 @@ const Footer = () => {
 
             <SectionFooter>
             <img src={logo2} alt="" width="200px" />
+                    <div>
+                        <h4>Account</h4>
+                        <ul>
+                            <li>Sign Up</li>
+                            <li>Log in</li>
+                        </ul>
+                    </div>
 
-                    <h4>Account</h4>
-                    <p>Sign Up</p>
-                    <p>Log in</p>
-                    <h4>Our company</h4>
-                    <p>Shop</p>
-                    <p>Our Story</p>
-                    <p>Who are we?</p>
-                    <h4>Resources</h4>
-                    <p>F.A.Q</p>
-                    <p>Contact</p>
+                    <div>
+                        <h4>Our company</h4>
+                        <ul>
+                            <li>Shop</li>
+                            <li>Our Story</li>
+                            <li>Who are we?</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>Resources</h4>
+                        <ul>
+                            <li>F.A.Q</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
             </SectionFooter>
         </>
     )

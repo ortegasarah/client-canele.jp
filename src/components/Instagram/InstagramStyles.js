@@ -7,6 +7,7 @@ justify-content: space-between;
 flex-wrap: nowrap;
 position: relative;
 flex-shrink: 0;
+padding: 2rem 0;
 `
 
 export const Ig = styled.img `
@@ -14,3 +15,4 @@ border-radius: 20px;
 width: 13%;
 padding: 5px;
 `
+

@@ -1,8 +1,8 @@
 // import { uploadWs } from "../../services/upload-ws";
 import Product from "../components/ProductCard/ProductCard";
 import styled from "styled-components";
-
-
+import { FooterImg } from "../components/Landing/LandingStyles"
+import { H1Stroke } from "../globalStyles";
 const Wrapper = styled.section`
 height: 100vh;
 margin: 0 auto;
@@ -15,20 +15,13 @@ display: grid;
 grid-template-columns: repeat(var(--smalldesktopcount), 1fr);
 --smalldesktopcount: 3;
 `
-const H1 = styled.h1`
-margin: 0 auto;
-padding: 10px 0 ;
-font-weight: 700;
-font-size: 50px;
-text-align: center;
-`
 
 const Shop = () => {
 
     return (
         <>
             <Wrapper>
-                <H1>カヌレ Canelé</H1>
+                <H1Stroke>カヌレ Canelés</H1Stroke>
                 <Ul>
                 <Product />
                 <Product />
@@ -38,6 +31,7 @@ const Shop = () => {
                 <Product />
                 </Ul>
                 </ Wrapper >
+            <FooterImg />
             </>
 
 
