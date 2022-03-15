@@ -6,9 +6,6 @@ export const TabHeaderContainer = styled.div`
     width: 100%;
 `;
 
-export const Wrapper = styled.section`
-    display: flex;
-`
 
 export const StylizedTab = styled.button`
   color: #000;

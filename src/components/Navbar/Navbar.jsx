@@ -35,13 +35,13 @@ const Navbar = ( props, {toggle}) => {
         <NavMenu>
 
           <NavItem>
-            <NavLink to={PATHS.HOMEPAGE}> SHOP </NavLink>
+            <NavLink to={PATHS.SHOP}> SHOP </NavLink>
           </NavItem>
           <NavItem>
             <NavLink to={PATHS.HOMEPAGE}> OUR STORY </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to={PATHS.HOMEPAGE}> F.A.Q </NavLink>
+            <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
           </NavItem>
         </NavMenu>
 

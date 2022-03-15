@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Tabs, Tab, TabPanel } from "../components/Tabs/Tabs";
-import { Wrapper } from "../components/Tabs/TabsStyles";
 
 const TabsContainer = styled.div`
   display: flex;
@@ -9,11 +8,13 @@ const TabsContainer = styled.div`
 `;
 
 const TabPanelContainer = styled.div`
-  /* height: 100vh; */
   padding: 5rem 10rem;
-
 `;
 
+const Wrapper = styled.section`
+    display: flex;
+  height: 100vh;
+`
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState(1);
 

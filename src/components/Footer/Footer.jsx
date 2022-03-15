@@ -13,9 +13,10 @@ locations.forEach(location => {
 const Footer = () => {
     return (
         <>
-                        <img src={logo2} alt="" width="200px" />
 
             <SectionFooter>
+            <img src={logo2} alt="" width="200px" />
+
                     <h4>Account</h4>
                     <p>Sign Up</p>
                     <p>Log in</p>
