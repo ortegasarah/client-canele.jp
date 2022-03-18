@@ -1,7 +1,7 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware  } from 'redux';
 // import  reducer from './reducer';
 import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { cartReducers } from './reducers/cartRerducers';
 import { getProductReducer, getProductDetailsReducer } from './reducers/productReducers'
@@ -9,12 +9,12 @@ import { getProductReducer, getProductDetailsReducer } from './reducers/productR
 const reducer = combineReducers({ 
     cart: cartReducers,
     getProduct: getProductReducer,
-    getProductDetails: getProductDetailsReducer
+    getProductDetails: getProductDetailsReducer,
 })
 
 // Array with all middleware
 const middleware = [ thunk ]
 
-const store = createStore(reducer, compose(applyMiddleware( thunk )));
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(  ...middleware )));
 
 export default store;
