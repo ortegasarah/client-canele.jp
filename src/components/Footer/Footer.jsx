@@ -1,5 +1,5 @@
 import React from "react";
-import logo2 from "../../assets/logo_full.jpg";
+import logo2 from "../../assets/logo-full.svg";
 import { SectionFooter } from "./FooterStyles"
 
 
@@ -15,7 +15,7 @@ const Footer = () => {
         <>
 
             <SectionFooter>
-            <img src={logo2} alt="" width="200px" />
+            <img src={logo2} alt="" width="300px"  />
                     <div>
                         <h4>Account</h4>
                         <ul>

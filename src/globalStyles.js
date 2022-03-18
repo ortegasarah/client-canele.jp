@@ -10,6 +10,9 @@ import { Link as LinkB } from "react-router-dom";
         overflow-x: hidden;
 
     }
+    body { 
+        background-color: #F7F6F2;
+    }
 
     h1 {
         /* font-family: 'Sansita', sans-serif; */
@@ -34,7 +37,7 @@ import { Link as LinkB } from "react-router-dom";
       }
 
     a:active {
-        color: 0D8F44;
+        color: #0D8F44;
     }
 `;
  
@@ -44,10 +47,7 @@ padding: 10px 0 ;
 font-weight: 700;
 font-size: 50px;
 text-align: center;
-color: #000;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1.4px;
-    -webkit-text-stroke-color: black;
+color: #F88C3B;
 `
 
 
@@ -93,6 +93,57 @@ export const ButtonGreen = styled.button`
     &:hover {
         color: #fff;
         background-color: #0D8F44;
+        }
+        
+    @media screen and (max-width: 1420px){
+    margin: 2rem auto;
+    }
+`
+export const ButtonWhite = styled.button`
+    border-radius: 44px;
+    color: #F88C3B;
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.5em 2em;
+    border: 3px solid #F7F6F2;
+    width: fit-content;
+    background-color: #F7F6F2;
+
+    &:hover {
+        background-color:transparent;
+        border: 3px solid #F7F6F2;
+        color: #F7F6F2;
+        }
+        
+    @media screen and (max-width: 1420px){
+    margin: 2rem auto;
+    }
+`
+
+export const ButtonOrange = styled.button`
+    border-radius: 44px;
+    color: #F88C3B;
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.5em 2em;
+    border: 2px solid #F88C3B;
+    width: fit-content;
+    background-color: transparent;
+    
+    &:hover {
+        background-color: #F88C3B;
+        border: 2px solid #F88C3B;
+        color: #F7F6F2;
         }
         
     @media screen and (max-width: 1420px){

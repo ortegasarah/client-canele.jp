@@ -1,6 +1,7 @@
-import "../App.css";
 import { useEffect, useState } from "react";
 import GlobalStyle, { ButtonBlack } from '../globalStyles';
+
+/* COMPONENTS */
 import Navbar from "../components/Navbar/Navbar";
 import Landing from "../components/Landing/Landing";
 import Modal from "../components/Modal/Modal";

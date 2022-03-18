@@ -1,33 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./Navbar.js";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn } from "./NavbarStyles";
 import { FaBars } from "react-icons/fa"
-import logo from "../../assets/canele-logo.png";
-import signup from "../../assets/avatar-profile-user-account.svg";
-import cart from "../../assets/shopping-bag.svg";
 import { useEffect, useState } from "react";
+
+/* STYLES */
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo } from "./NavbarStyles";
+import GlobalStyle, { ButtonBlack, ButtonGreen, ButtonWhite } from '../../globalStyles';
+
+/* COMPONENTS */
 import Modal from "../Modal/Modal";
 import ModalInner from "../ModalInner/ModalInner";
-import GlobalStyle, { ButtonBlack, ButtonGreen } from '../../globalStyles';
+import Cart from "../Cart/Cart";
+
+/* IMAGES */
+import signup from "../../assets/avatar-profile-user-account.svg";
+import cart from "../../assets/shopping-bag.svg";
 
 
-const Navbar = ( props, {toggle}) => {
+
+const Navbar = (props, { toggle }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
     setShowModal((showModal) => !showModal);
+  };
+
+  const [showCart, setShowCart] = useState(false);
+  const toggleCart = () => {
+    setShowCart((showCart) => !showCart);
   };
 
 
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to={PATHS.HOMEPAGE} className="nav__projectName">
-          <img src={logo} alt="Logo Canele du Japon" />
-
-        </NavLogo>
         <MobileIcon onClick={toggle}>
           <FaBars />
         </MobileIcon>
@@ -54,7 +61,6 @@ const Navbar = ( props, {toggle}) => {
               <ButtonBlack onClick={props.handleLogout}> Logout
               </ButtonBlack>
             </>
-
           ) : (
             <>
               <Link to={PATHS.SIGNUPPAGE} className="authLink">
@@ -63,8 +69,6 @@ const Navbar = ( props, {toggle}) => {
               <Link to={PATHS.AUTH} className="authLink">
                 Log In
               </Link>
-              <img src={cart} alt="cart" height="40px" />
-
               {showModal && (
                 <Modal toggleModal={toggleModal}>
                   <ModalInner />
@@ -72,8 +76,21 @@ const Navbar = ( props, {toggle}) => {
               )}
 
               <ButtonBlack onClick={toggleModal}>Sign Up </ButtonBlack>
+
             </>
           )}
+
+
+          {/* CART SIDE TOGGLE */}
+          {showCart && (
+            <Modal toggleModal={toggleCart}>
+              <Cart />
+            </Modal>
+          )}
+          <img src={cart} alt="cart" height="40px" onClick={toggleCart} />
+
+
+          <Link to={PATHS.SHOP}><ButtonWhite> Order</ButtonWhite>  </Link>
         </NavBtn>
 
 
@@ -86,6 +103,8 @@ const Navbar = ( props, {toggle}) => {
 
 
       </NavbarContainer>
+      <CenterLogo><Logo /></CenterLogo>
+
     </Nav>
   );
 };

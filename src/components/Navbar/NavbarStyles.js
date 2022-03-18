@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
+import img from '../../assets/kisetsu.jpeg'
+import { ReactComponent as LogoSVG} from '../../assets/logo-name.svg'
 
 export const Nav = styled.nav`
   // display: flex;
@@ -7,26 +9,32 @@ export const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #FBF8F1;
+  background-color: #F7F6F2;
   font-weight: 600;
   font-size: 1rem;
-  border-bottom: 1.5px solid #000;
-  position: sticky;
   width: 100%;
   margin: 0 auto; 
   top: 0;
   z-index: 999;
-
+  background: url(${img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 
   @media screen and (max-width: 960px) {
     transition: 0,8s all ease;
   }
   `
-
+export const Logo = styled(LogoSVG)`
+  /* width: 100vw; */
+  margin: 10em auto;
+  padding: 0 15px;
+  color: white;
+`
 export const NavbarContainer = styled.div `
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  /* height: 80px; */
   z-index: 1;
   /* width: 100px; */
   padding: 0 24px;
@@ -64,7 +72,9 @@ display: none;
 
 }
 `
-
+export const CenterLogo = styled.div`
+margin: 5em auto;
+`
 export const NavMenu = styled.ul `
 display: flex;
 align-items: center;
