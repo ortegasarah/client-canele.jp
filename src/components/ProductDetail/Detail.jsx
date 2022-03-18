@@ -1,5 +1,5 @@
 
-const Detail = () => {
+const ProductDetail = () => {
 
     return (
 <>
@@ -9,4 +9,4 @@ const Detail = () => {
 
     )}
 
-export default Detail
+export default ProductDetail

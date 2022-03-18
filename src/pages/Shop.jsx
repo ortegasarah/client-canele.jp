@@ -3,6 +3,9 @@ import Product from "../components/ProductCard/ProductCard";
 import styled from "styled-components";
 import { FooterImg } from "../components/Landing/LandingStyles"
 import { H1Stroke } from "../globalStyles";
+import { useSelector, useDispatch} from 'react-redux';
+import { useEffect } from "react";
+import { getProduct } from '../Redux/actions/productActions'
 
 
 const Wrapper = styled.section`
@@ -18,6 +21,17 @@ const Ul = styled.ul`
 `
 
 const Shop = () => {
+    const dispatch = useDispatch();
+
+    const getProducts = useSelector((state) => 
+    {console.log(state)
+        return state.getProducts
+    });
+    // const { products, loading, error } = getProducts;
+  console.log("produc", getProducts)
+    useEffect(() => {
+    //   dispatch(getProduct());
+    }, []);
 
     return (
         <>

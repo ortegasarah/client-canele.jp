@@ -1,19 +1,28 @@
 import * as actionTypes from '../constants/productConst';
 
-export const getProductReducer = (state = { products: [] } , action) => {
+const initialStateProduct = {
+    loading: false,
+    products: [],
+    error: "perro",
+}
+
+export const getProductReducer = (state = initialStateProduct, action) => {
     switch (action.type) {
         case actionTypes.GET_PRODUCTS_REQUEST:
             return {
+                ...state,
                 loading: true,
                 products: [],
             }
         case actionTypes.GET_PRODUCTS_SUCCESS:
             return {
+                ...state,
                 loading: false,
                 products: action.payload,
             };
         case actionTypes.GET_PRODUCTS_FAIL:
             return {
+                ...state,
                 loading: false,
                 error: action.payload,
             };
@@ -21,7 +30,7 @@ export const getProductReducer = (state = { products: [] } , action) => {
             return state;
     }
 }
-export const getProductDetailsReducer = (state = { product: {}}, action) => {
+export const getProductDetailsReducer = (state = { product: {} }, action) => {
     switch(action.type) {
         case actionTypes.GET_PRODUCT_DETAILS_REQUEST:
             return {

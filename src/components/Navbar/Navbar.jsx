@@ -6,17 +6,18 @@ import { FaBars } from "react-icons/fa"
 import { useEffect, useState } from "react";
 
 /* STYLES */
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo } from "./NavbarStyles";
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg } from "./NavbarStyles";
 import GlobalStyle, { ButtonBlack, ButtonGreen, ButtonWhite } from '../../globalStyles';
 
 /* COMPONENTS */
 import Modal from "../Modal/Modal";
 import ModalInner from "../ModalInner/ModalInner";
 import Cart from "../Cart/Cart";
-
+import HomePage from "../../pages/HomePage"
 /* IMAGES */
 import signup from "../../assets/avatar-profile-user-account.svg";
 import cart from "../../assets/shopping-bag.svg";
+import canele from "../../assets/canele-illu.png";
 
 
 
@@ -39,6 +40,11 @@ const Navbar = (props, { toggle }) => {
           <FaBars />
         </MobileIcon>
 
+        {<HomePage /> ? 
+      <HeroImg/>
+      :
+      <img src={canele} alt="logo" height="100px"  />
+      }
         <NavMenu>
 
           <NavItem>
@@ -51,6 +57,7 @@ const Navbar = (props, { toggle }) => {
             <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
           </NavItem>
         </NavMenu>
+        <img src={canele} alt="logo" height="100px"  />
 
         <NavBtn>
           {props.user ? (

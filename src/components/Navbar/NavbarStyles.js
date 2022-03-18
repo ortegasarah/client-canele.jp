@@ -4,7 +4,6 @@ import img from '../../assets/kisetsu.jpeg'
 import { ReactComponent as LogoSVG} from '../../assets/logo-name.svg'
 
 export const Nav = styled.nav`
-  // display: flex;
   padding: 2em 0;
   justify-content: center;
   align-items: center;
@@ -16,21 +15,30 @@ export const Nav = styled.nav`
   margin: 0 auto; 
   top: 0;
   z-index: 999;
-  background: url(${img});
+  /* background: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100vh; */
 
   @media screen and (max-width: 960px) {
     transition: 0,8s all ease;
   }
-  `
+`
+
+export const HeroImg = styled.div`
+  background: url(${img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+`
+
 export const Logo = styled(LogoSVG)`
   /* width: 100vw; */
   margin: 10em auto;
   padding: 0 15px;
   color: white;
 `
+
 export const NavbarContainer = styled.div `
   display: flex;
   justify-content: space-between;
