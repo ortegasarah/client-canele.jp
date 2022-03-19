@@ -15,7 +15,7 @@ const Wrapper = styled.section`
     display: flex;
   height: 100vh;
 `
-const UserProfile = () => {
+const UserProfile = (props) => {
   const [activeTab, setActiveTab] = useState(1);
 
   const handleChange = (e, value) => {
@@ -32,7 +32,7 @@ const UserProfile = () => {
           <Tab label="ACCOUNT OVERVIEW" value={0}></Tab>
           <Tab label="MY ORDERS" value={1}></Tab>
           <Tab label="MY ADDRESSES" value={2}></Tab>
-          <Tab label="SIGN OUT" value={3}></Tab>
+          <Tab label="SIGN OUT" onClick={props.handleLogout}></Tab>
         </Tabs>
       </TabsContainer>
       <TabPanelContainer>

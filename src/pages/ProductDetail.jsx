@@ -5,15 +5,22 @@ import { addToCart } from '../Redux/actions/cartActions'
 import { Section, StickyImSgSection, TextDetail, ProductButtonSection } from './ProductDetailStyles'
 import { ButtonCart, ButtonOrange, H1 } from '../globalStyles'
 import { StickyContainer, Sticky } from 'react-sticky';
+import { useLocation, useParams } from 'react-router-dom'
 
-const ProductDetail = ({ match, history }) => {
+const ProductDetail = () => {
     const [quantity, setQuantity] = useState(1)
     const dispatch = useDispatch();
-
+    const params = useParams()
+    
     const productDetails = useSelector(state => state.getProductDetails);
     const { loading, error, product } = productDetails;
 
+    useEffect(()=>{
+        dispatch(getProductDetails(params.id))
+    },[] )
+console.log("product", product)
     return (
+        loading ? <p>Loading</p> : 
         <>
             <Section>
                 <StickyImSgSection>
@@ -22,11 +29,9 @@ const ProductDetail = ({ match, history }) => {
                     <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452766/CaneleDuJapon/6box02_ctsucl.jpg' width={800} />
                     <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452861/CaneleDuJapon/boxes_gnbkys.png' width={800} />
                 </StickyImSgSection>
-                <StickyContainer>
                 <TextDetail>
-                    <H1>8 Assorted Canelés</H1>
-                    <p>Assorted box of 8 canelés, pick your flavors</p>
-                    <p>円1560</p>
+                    <H1>{product.name}</H1>
+                    <p>{product.description}</p>
                     <ProductButtonSection>
                         <ButtonOrange>White</ButtonOrange>
                         <ButtonOrange>Almond</ButtonOrange>
@@ -38,7 +43,6 @@ const ProductDetail = ({ match, history }) => {
 
                     <ButtonCart> <span>円1560</span> <span>Add to cart</span> </ButtonCart>
                 </TextDetail>
-                </StickyContainer>
                 {/* <img src={image_url[0]} alt={name} />
 <h1>{name}</h1>
 <p>{description}</p>

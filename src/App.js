@@ -84,6 +84,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <>      
       <GlobalStyle />
       {showModal && (
         <Modal toggleModal={toggleModal}>
@@ -95,7 +96,6 @@ export default function App() {
       :
       <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
       }
- 
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
@@ -103,6 +103,7 @@ export default function App() {
       </Routes>
       <Footer />
 
+      </>
 
     </div>
   );

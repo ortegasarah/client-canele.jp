@@ -1,5 +1,5 @@
 // import { uploadWs } from "../../services/upload-ws";
-import Product from "../components/ProductCard/ProductCard";
+import ProductCard from "../components/ProductCard/ProductCard";
 import styled from "styled-components";
 import { FooterImg, H2 } from "../components/Landing/LandingStyles"
 import { H1 } from "../globalStyles";
@@ -12,16 +12,14 @@ import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
     margin: 0 auto;
-    padding: 10px 15%;
-    height: 100vh;
+    padding: 2rem 3rem;
+    /* height: 100vh; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `;
 
-const Ul = styled.ul`
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(var(--smalldesktopcount), 1fr);
-    --smalldesktopcount: 3;
-`
+
 
 const Shop = () => {
     const dispatch = useDispatch();
@@ -34,29 +32,30 @@ const Shop = () => {
 
     console.log("products from getProducts", getProducts)
     useEffect(() => {
-          dispatch(getProduct());
+        dispatch(getProduct());
     }, [dispatch]);
 
+    // const total = products.reduce(
+    //     (acc, item) => (acc += item.info.price * item.quantity),
+    //     0
+    // );
+
+
     return (
-        <>
+        <div>
+            <H1>カヌレ Canelés</H1>                <H1>ドリンク Drinks</H1>
+
+
             <Wrapper>
-                <H1>カヌレ Canelés</H1>
 
-                {/* <Route to="/ProductDetail" component={ProductDetail}> <h1>One product</h1></Route> */}
-
-                {loading ? <H2>Loading...</H2> : error ? <H2>{error}</H2> : products.map((products) => (
-                    <Product  
-                    key={products._id} 
-                    productsId={products._id}
-                    name={products.name}
-                    price={products.price}
-                    image_url={products.image_url}
-                    />))}
-
-                <H1>ドリンク Drinks</H1>
+                {/* <Link to="/ProductDetail" component={ProductDetail}> <h1>One product</h1></Link> */}
+                    {loading ? <H2>Loading...</H2> : products.map((products) => (
+                        <ProductCard
+                            key={products._id}
+                            {...products}
+                        />))}
             </ Wrapper >
-            
-        </>
+        </div>
 
 
     )

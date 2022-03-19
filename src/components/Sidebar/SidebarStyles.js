@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { FaTimes } from 'react-icons/fa'
-import { Link as LinkR } from "react-router-dom";
+import {  Link as LinkR } from "react-router-dom";
 
 export const SidebarContainer = styled.aside `
     position: fixed;
@@ -18,7 +18,8 @@ export const SidebarContainer = styled.aside `
     z-index:2000;
 `
 
-export const CloseIcon = styled(FaTimes)`
+export const CloseIcon = styled(FaTimes)
+`
     color: #000;
 `
 
@@ -46,7 +47,8 @@ export const SidebarMenu = styled.ul `
         grid-template-rows: repeat(6, 60px);
     }
 `;
-export const SidebarLink = styled(LinkR)`
+export const SidebarLink = styled(LinkR)
+`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,23 +68,4 @@ export const SidebarLink = styled(LinkR)`
 export const SideBtnWrap = styled.div `
     display: flex;
     justify-content: center;
-`;
-export const SidebarRoute = styled(LinkR)`
-    border-radius: 50px;
-    background: #0D8F44;
-    white-space: nowrap;
-    padding: 16px 64px;
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-    font-weight: bold;
-    &:hover {
-        transition: all 0.2s ease-in-out;
-        background: #fff;
-        color: #010606;
-    }
 `;

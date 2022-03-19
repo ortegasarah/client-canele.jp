@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 
 export const Grid = styled.section `
-display: grid;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5rem auto;
 `
 
 export const SquareButton = styled.button `
-    width: 24rem;
-    height: 24rem;
+    width: 30rem;
+    height: 30rem;
     position: relative;
-    display: grid;
+    display: flex;
     align-content: center;
     justify-content: center;
     place-content: center;
@@ -18,6 +21,8 @@ export const SquareButton = styled.button `
     color: var(--orange);
     cursor: pointer;
     font-size: 2rem;
+    text-align: left;
+    align-items: center;
 
     &:hover{
         color: var(--beige);
@@ -27,19 +32,20 @@ export const SquareButton = styled.button `
 
 export const CircleButton = styled.button `
     border-radius: 100vw;
-    width: 24rem;
-    height: 24rem;
+    width: 30rem;
+    height: 30rem;
     position: relative;
-    display: grid;
-    align-content: center;
-    justify-content: center;
+    display: flex;
+    /* align-content: center;
+    justify-content: center; */
     place-content: center;
     background: transparent;
     border: 2px solid var(--orange);
     color: var(--orange);
     cursor: pointer;
     font-size: 2rem;
-
+    text-align: left;
+    align-items: center;
 
     &:hover{
         color: var(--beige);

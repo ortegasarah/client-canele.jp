@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+export const DivCard = styled.div `
+    padding: 2rem;
+    width: 600px;
+`
+
 export const ImgProduct = styled.img `
-border-radius: 20px;
-width: 340px;
-padding: 5px;
+    height: 400px;
+    padding: 5px;
 `
 
 export const Detail = styled.div`
@@ -11,16 +15,11 @@ export const Detail = styled.div`
     flex-direction: column;
     gap: var(--space-sm);
     padding: var(--space-sm) 0;
-`
-
-export const Li = styled.li`
-margin: 0 auto;
-padding: 0;
-
-a:link{
+    a:hover {
     text-decoration: none;
 }
 `
+
 
 export const H3 = styled.h3 `
 padding: 10px 0 ;

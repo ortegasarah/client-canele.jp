@@ -5,4 +5,4 @@ export const PROTECTEDPAGE = "/protected";
 export const USERPROFILE = "/profile";
 export const AUTH = "/auth";
 export const SHOP = "/shop";
-export const PRODUCTDETAIL = "/productdetail";
+export const PRODUCTDETAIL = "/products/:id";

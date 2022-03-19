@@ -9,6 +9,6 @@ const baseURL = isProduction ?
 
 export const api = axios.create({
     baseURL,
-    withcredentials: true,
+    withCredentials: true,
     timeout: 10000,
 });

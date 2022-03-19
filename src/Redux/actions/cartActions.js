@@ -5,10 +5,7 @@ import { getCartWs, deleteCartWs, createCartWs } from '../../services/cart-ws'
 export const addToCart = (id, quantity) => async (dispatch, getState) =>{
     const { data } = await createCartWs({product:id, quantity})
 
-    // const total = products.reduce(
-    //     (acc, item) => (acc += item.info.price * item.quantity),
-    //     0
-    //   );
+
       
     dispatch({
         type: actionTypes.ADD_TO_CART,

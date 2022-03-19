@@ -9,7 +9,7 @@ export const Input = styled.input`
   width: 100%;
 
   &:focus {
-    border-color: #0D8F44;
+    border-color: var(--yellow);
   }
 
   @media (max-width: 700px) {
@@ -27,8 +27,8 @@ export const Error = styled.span`
 
 export const Submit = styled.button`
   background: none;
-  border: 2px solid #0D8F44;
-  color: #0D8F44;
+  border: 2px solid var(--orange);
+  color: black;
   cursor: pointer;
   float: right;
   font-size: 18px;

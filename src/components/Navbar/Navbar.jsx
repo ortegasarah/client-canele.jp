@@ -21,7 +21,7 @@ import canele from "../../assets/canele-illu.png";
 
 
 
-const Navbar = (props, { toggle }) => {
+const Navbar = ({ toggle, ...props }) => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
     setShowModal((showModal) => !showModal);
@@ -72,7 +72,7 @@ const Navbar = (props, { toggle }) => {
                 <img src={signup} alt="signup" height="40px" />
               </Link> */}
               <Link to={PATHS.AUTH} className="authLink">
-                //
+                Account
               </Link>
               {showModal && (
                 <Modal toggleModal={toggleModal}>
@@ -80,7 +80,7 @@ const Navbar = (props, { toggle }) => {
                 </Modal>
               )}
 
-              <ButtonOrange onClick={toggleModal}>Account </ButtonOrange>
+              {/* <ButtonOrange onClick={toggleModal}>Account </ButtonOrange> */}
 
             </>
           )}
@@ -95,7 +95,7 @@ const Navbar = (props, { toggle }) => {
           <img src={cart} alt="cart" height="40px" onClick={toggleCart} />
 
 
-          <Link to={PATHS.SHOP}><ButtonWhite> Order</ButtonWhite>  </Link>
+          <Link to={PATHS.SHOP}><ButtonOrange> Order</ButtonOrange>  </Link>
         </NavBtn>
 
 

@@ -41,10 +41,6 @@ import { Link as LinkB } from "react-router-dom";
     a:hover {
         text-decoration: underline;
       }
-
-    a:active {
-        color: #0D8F44;
-    }
 `;
  
 export const H1 = styled.h1`
@@ -97,7 +93,7 @@ export const ButtonOrange = styled.button`
     border: 2px solid var(--orange);
     width: fit-content;
     background-color: transparent;
-    
+    margin: 10px 0;
     &:hover {
         background-color: var(--orange);
         border: 2px solid var(--orange);

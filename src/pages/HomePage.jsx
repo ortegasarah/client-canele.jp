@@ -7,7 +7,7 @@ import Landing from "../components/Landing/Landing";
 import Modal from "../components/Modal/Modal";
 import ModalInner from "../components/ModalInner/ModalInner";
 import Instagram from "../components/Instagram/Instagram";
-import { CenterLogo, HeroImg, Logo } from "../components/Navbar/NavbarStyles";
+import { HeroImg, Logo } from "../components/Navbar/NavbarStyles";
 import Delivery from "../components/Delivery/Delivery";
 
 
@@ -28,10 +28,10 @@ function HomePage() {
           <ModalInner />
         </Modal>
       )}
-      <HeroImg><CenterLogo><Logo/></CenterLogo> </HeroImg>
+      <HeroImg><Logo/> </HeroImg>
       <Landing />
-      <Delivery/>
-      <ButtonOrange onClick={toggleModal}>Sign Up for updates </ButtonOrange>
+      {/* <Delivery/> */}
+      {/* <ButtonOrange onClick={toggleModal}>Sign Up for updates </ButtonOrange> */}
       <Instagram />
       </header>
     </div>

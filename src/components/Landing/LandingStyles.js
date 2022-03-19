@@ -57,7 +57,7 @@ export const Wrapper = styled.section `
   flex-direction: row;
   margin: 30px;
   align-items: center;
-  padding: 2rem 0;
+  padding: 0;
 
   p {
     padding: 2rem 0;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 
 /* STYLES */
@@ -7,6 +7,7 @@ import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, Sidebar
 
 /* IMAGES */
 import cart from "../../assets/shopping-bag.svg";
+import { ButtonOrange } from "../../globalStyles";
 
 /* HAMBURGER MENU TOGGLED WHEN SMALL SCREEN */
 const Sidebar = ({ isOpen, toggle }) => {
@@ -26,7 +27,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="/" onClick={toggle}> Sign up  </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/signin">Sign in</SidebarRoute>
+          <Link to="/signin"><ButtonOrange>Sign in</ButtonOrange></Link>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

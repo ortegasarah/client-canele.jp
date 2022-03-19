@@ -16,7 +16,7 @@ export const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: transparent;
+  background-color: var(--beige);
   /* background: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,15 +27,16 @@ export const Nav = styled.nav`
   }
 `
 
-export const HeroImg = styled.header`
+export const HeroImg = styled.section`
   background: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  text-align:center;
 `
 
 export const Logo = styled(LogoSVG)`
-  /* width: 100vw; */
+  width: 80vw; 
   margin: 10em auto;
   padding: 0 15px;
   color: white;
@@ -81,9 +82,6 @@ display: none;
   color: #000;
 
 }
-`
-export const CenterLogo = styled.div`
-margin: 5em auto;
 `
 export const NavMenu = styled.ul `
 display: flex;

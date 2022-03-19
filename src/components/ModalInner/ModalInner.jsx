@@ -16,8 +16,7 @@ const Success = () => (
   <SuccessContainer>
     <H4>Yayyyyy!!</H4>
     <p>
-      We hope you are excited too! In the meantime u can follow us on social
-      media
+     
     </p>
   </SuccessContainer>
 );

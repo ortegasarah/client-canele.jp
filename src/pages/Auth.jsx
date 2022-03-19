@@ -7,23 +7,21 @@ import * as USER_HELPERS from "../utils/userToken";
 import * as Yup from "yup";
 import { Formik, Form, useField } from "formik";
 import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
-import { ButtonOrange } from '../globalStyles';
-import { Wrapper } from "./LoginStyles"
-
-
+import { ButtonOrange, H1 } from '../globalStyles';
+import { Wrapper, Image, SectionForm } from "./LoginStyles"
+import Img from '../assets/signup.jpg'
+import {Link} from 'react-router-dom'
 
 const InputComponent = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-  
-    return (
-      <Label>
-        {label} : {meta.touched && meta.error && <Error>{meta.error}</Error>}
-        <Input {...field} {...props} />
-      </Label>
-    );
-  };
+  const [field, meta] = useField(props);
 
-  
+  return (
+    <Label>
+      {label} : {meta.touched && meta.error && <Error>{meta.error}</Error>}
+      <Input {...field} {...props} />
+    </Label>
+  );
+};
 
 
 const LogIn = ({ handleSuccess, authenticate }) => {
@@ -35,24 +33,14 @@ const LogIn = ({ handleSuccess, authenticate }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const InputComponent = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-  
-    return (
-      <Label>
-        {label} : {meta.touched && meta.error && <Error>{meta.error}</Error>}
-        <Input {...field} {...props} />
-      </Label>
-    );
-  };
-  
 
-    const schema = Yup.object().shape({
-      name: Yup.string().required("Required fiels"),
-      email: Yup.string()
-        .email("Must be a valid email address")
-        .required("Required fiels")
-    });
+
+  const schema = Yup.object().shape({
+    name: Yup.string().required("Required fiels"),
+    email: Yup.string()
+      .email("Must be a valid email address")
+      .required("Required fiels")
+  });
 
 
 
@@ -63,8 +51,7 @@ const LogIn = ({ handleSuccess, authenticate }) => {
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-
-    return setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value });
   }
 
   function handleFormSubmission(event) {
@@ -86,55 +73,62 @@ const LogIn = ({ handleSuccess, authenticate }) => {
 
   return (
     <Wrapper>
-       <h1>Log In</h1>
-       <Formik
-      initialValues={{
-        name: "",
-        email: ""
-      }}
-      onSubmit={handleSuccess}
-      validationSchema={schema}
-    >
-      {() => (
-        <Form onSubmit={handleFormSubmission} className="signup__form">
-        <InputComponent
-          id="input-username"
-          type="text"
-          name="email"
-          placeholder="email"
-          value={email}
-          onChange={handleInputChange}
-          autoComplete="off"
-          label="Email"
-          required
-          />
-        
+      <Image src={Img} alt="" />
 
-        <InputComponent
-          id="input-password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleInputChange}
-          label="Password"
-          autoComplete="off"
-          required
-          minLength="8"
-        />
+      <SectionForm>
+        <H1>Log In</H1>
+        <Formik
+          initialValues={{
+            name: "",
+            email: ""
+          }}
+          onSubmit={handleSuccess}
+          validationSchema={schema}
+        >
+          {() => (
+            <Form onSubmit={handleFormSubmission} className="signup__form">
+              <InputComponent
+                id="input-username"
+                type="text"
+                name="email"
+                placeholder="email"
+                value={email}
+                onChange={handleInputChange}
+                autoComplete="off"
+                label="Email"
+                required
+              />
 
-        {error && (
-          <div className="error-block">
-            <p>There was an error submiting the form:</p>
-            <p>{error.message}</p>
-          </div>
-        )}
 
-<ButtonOrange type="submit"> Submit </ButtonOrange>
+              <InputComponent
+                id="input-password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handleInputChange}
+                label="Password"
+                autoComplete="off"
+                required
+                minLength="8"
+              />
 
-      </Form>
-      )}
-    </Formik>
+              {error && (
+                <div className="error-block">
+                  <p>There was an error submiting the form:</p>
+                  <p>{error.message}</p>
+                </div>
+              )}
+
+              <ButtonOrange type="submit"> Submit </ButtonOrange>
+
+            </Form>
+          )}
+        </Formik>
+        <p> Forgot password?</p>
+
+        <Link to={PATHS.SIGNUPPAGE}><p> Don't have an account? Sign up</p></Link>
+      </SectionForm>
     </Wrapper>
   );
 }

@@ -5,6 +5,7 @@ export const Modal = styled.div`
  ${AbsoluteCenter};
   animation: glow 1s forwards;
   background: #fbfbfb;
+  background: var(--yellow);
   box-sizing: border-box;
   padding: 60px;
   max-width: 800px;

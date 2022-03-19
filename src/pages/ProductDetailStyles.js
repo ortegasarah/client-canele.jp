@@ -26,20 +26,21 @@ export const StickyImSgSection = styled.div`
 `
 
 export const TextDetail = styled.div `
-    /* display: grid; */
-    /* flex-basis: calc(50% + 8em); */
     position: sticky;
     position: -webkit-sticky;
     top: var(--offset);
-    /* padding: 6em 4em; */
+    padding: 0  0 4em 4em;
     height: 100vh;
+    top: 6rem;
 `
 
 export const ProductButtonSection = styled.div `
-    display: flex;
-    --cluster-column-gap: 0.25rem;
+    display: grid;
+    margin: 4px 0;
+    grid-column-gap: 3rem;    /* --cluster-column-gap: 0.25rem;
     flex-wrap: wrap;
     margin-left: calc(var(--cluster-column-gap, 0) * -1);
     margin-top: calc(var(--cluster-row-gap, 0) * -1);
-    margin: 4px;
+    margin: 4px; */
 `
+
