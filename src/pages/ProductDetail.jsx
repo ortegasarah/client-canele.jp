@@ -24,10 +24,14 @@ console.log("product", product)
         <>
             <Section>
                 <StickyImSgSection>
-                    <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452786/CaneleDuJapon/8box02_x5jzbf.png' width={800} />
+                {!product.image_url ? <span>no image</span>  : product.image_url.map((image, idx) =>{
+                    return (<img src={image} key={idx} alt={product.name}/>)
+                })}
+
+                    {/* <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452786/CaneleDuJapon/8box02_x5jzbf.png' width={800} />
                     <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452766/CaneleDuJapon/6box04_t1ispp.jpg' width={800} />
                     <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452766/CaneleDuJapon/6box02_ctsucl.jpg' width={800} />
-                    <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452861/CaneleDuJapon/boxes_gnbkys.png' width={800} />
+                    <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452861/CaneleDuJapon/boxes_gnbkys.png' width={800} /> */}
                 </StickyImSgSection>
                 <TextDetail>
                     <H1>{product.name}</H1>
@@ -41,7 +45,7 @@ console.log("product", product)
                         <ButtonOrange>Brown sugar walnut</ButtonOrange>
                     </ProductButtonSection>
 
-                    <ButtonCart> <span>円1560</span> <span>Add to cart</span> </ButtonCart>
+                    <ButtonCart> <span>円{product.price}</span> <span>Add to cart</span> </ButtonCart>
                 </TextDetail>
                 {/* <img src={image_url[0]} alt={name} />
 <h1>{name}</h1>
