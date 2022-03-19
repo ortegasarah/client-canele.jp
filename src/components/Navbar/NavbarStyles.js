@@ -4,17 +4,19 @@ import img from '../../assets/kisetsu.jpeg'
 import { ReactComponent as LogoSVG} from '../../assets/logo-name.svg'
 
 export const Nav = styled.nav`
-  padding: 2em 0;
+  /* padding: 2em 0; */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #F7F6F2;
+  background-color: var(--beige);
   font-weight: 600;
   font-size: 1rem;
   width: 100%;
   margin: 0 auto; 
+  position: sticky;
   top: 0;
   z-index: 999;
+  background-color: transparent;
   /* background: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,7 +27,7 @@ export const Nav = styled.nav`
   }
 `
 
-export const HeroImg = styled.div`
+export const HeroImg = styled.header`
   background: url(${img});
   background-repeat: no-repeat;
   background-size: cover;

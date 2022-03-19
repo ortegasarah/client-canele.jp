@@ -95,8 +95,7 @@ export default function App() {
       :
       <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
       }
-      {/* <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack> */}
-      {/* <HomePage /> */}
+ 
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />

@@ -21,7 +21,7 @@ export const Marquee = styled.div`
 
 
 export const MarqueeInner = styled.div`
-    color: #F88C3B;
+    color: var(--orange);
     width: fit-content;
     display: flex;
     position: relative;

@@ -1,22 +1,23 @@
-import { ButtonGreen } from "../../globalStyles";
+import { ButtonOrange } from "../../globalStyles";
 // import { uploadWs } from "../../services/upload-ws";
 import box01 from "../../assets/ig-01.png";
 import { ImgProduct, Detail, Li, H3, H4 } from "./ProductCardStyles"
 import * as PATHS from "../../utils/paths";
 import { Link } from "react-router-dom";
 
-const Product = () => {
+const Product = (name, image_url, price, id) => {
 
     return (
-<>
-<Li>
-    <Link to={PATHS.HOMEPAGE}>
-        <ImgProduct src={box01} alt=""/>
-        <Detail>
-            <H3>NamOfProfuct</H3>
-            <H4>Description 円 Price</H4>
-            
-{/* <select>
+        <>
+        <h1>ProductName</h1>
+            <Li>
+
+                <Link to={`/products/${id}`}>
+                    <ImgProduct src={image_url[0]} alt={name} />
+                    <Detail>
+                        <h1>{name}</h1>
+                        <p>円{price}</p>
+                        {/* <select>
     {[...Array(product.count).keys()].map(
         (x) => (
             <option key = { x + 1 }>
@@ -26,13 +27,14 @@ const Product = () => {
     )}
 </select> */}
 
-            <ButtonGreen>Add to Cart</ButtonGreen>
-        </Detail>
-    </Link>
-</Li>
-</>
+                        <ButtonOrange>Add to Cart</ButtonOrange>
+                    </Detail>
+                </Link>
+            </Li>
+        </>
 
 
-    )}
+    )
+}
 
 export default Product

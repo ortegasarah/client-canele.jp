@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const SectionFooter = styled.section`
-color: #F7F6F2;
+color: var(--beige);
 display: flex;
 padding: 2em;
 justify-content: space-around;
 flex-wrap: wrap;
-background: #F9C04C;
+background: var(--yellow);
 align-items: center;
 z-index: -100000;
-h4, p {
-}
+margin-top: 2rem;
+
 `

@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
 import { FaBars } from "react-icons/fa"
-import { useEffect, useState } from "react";
-
+import { useEffect, useState,  } from "react";
+import {useLocation} from 'react-router-dom'
 /* STYLES */
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg } from "./NavbarStyles";
-import GlobalStyle, { ButtonBlack, ButtonGreen, ButtonWhite } from '../../globalStyles';
+import GlobalStyle, { ButtonOrange, ButtonWhite } from '../../globalStyles';
 
 /* COMPONENTS */
 import Modal from "../Modal/Modal";
 import ModalInner from "../ModalInner/ModalInner";
 import Cart from "../Cart/Cart";
-import HomePage from "../../pages/HomePage"
+
 /* IMAGES */
 import signup from "../../assets/avatar-profile-user-account.svg";
 import cart from "../../assets/shopping-bag.svg";
@@ -32,6 +32,7 @@ const Navbar = (props, { toggle }) => {
     setShowCart((showCart) => !showCart);
   };
 
+  // const location = useLocation()
 
   return (
     <Nav>
@@ -40,11 +41,7 @@ const Navbar = (props, { toggle }) => {
           <FaBars />
         </MobileIcon>
 
-        {<HomePage /> ? 
-      <HeroImg/>
-      :
-      <img src={canele} alt="logo" height="100px"  />
-      }
+       
         <NavMenu>
 
           <NavItem>
@@ -57,7 +54,8 @@ const Navbar = (props, { toggle }) => {
             <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
           </NavItem>
         </NavMenu>
-        <img src={canele} alt="logo" height="100px"  />
+        <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px"  /> </Link>
+       
 
         <NavBtn>
           {props.user ? (
@@ -65,16 +63,16 @@ const Navbar = (props, { toggle }) => {
               <NavLink to={PATHS.USERPROFILE}>
                 User Name
               </NavLink>
-              <ButtonBlack onClick={props.handleLogout}> Logout
-              </ButtonBlack>
+              <ButtonOrange onClick={props.handleLogout}> Logout
+              </ButtonOrange>
             </>
           ) : (
             <>
-              <Link to={PATHS.SIGNUPPAGE} className="authLink">
+              {/* <Link to={PATHS.SIGNUPPAGE} className="authLink">
                 <img src={signup} alt="signup" height="40px" />
-              </Link>
+              </Link> */}
               <Link to={PATHS.AUTH} className="authLink">
-                Log In
+                //
               </Link>
               {showModal && (
                 <Modal toggleModal={toggleModal}>
@@ -82,7 +80,7 @@ const Navbar = (props, { toggle }) => {
                 </Modal>
               )}
 
-              <ButtonBlack onClick={toggleModal}>Sign Up </ButtonBlack>
+              <ButtonOrange onClick={toggleModal}>Account </ButtonOrange>
 
             </>
           )}
@@ -110,8 +108,11 @@ const Navbar = (props, { toggle }) => {
 
 
       </NavbarContainer>
-      <CenterLogo><Logo /></CenterLogo>
-
+      {/* <CenterLogo><Logo /></CenterLogo> */}
+      {/* { location.pathname === "/" ? 
+      <HeroImg>holaaaa</HeroImg>
+      :
+      <p>hello</p>} */}
     </Nav>
   );
 };

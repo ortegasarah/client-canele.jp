@@ -2,7 +2,8 @@ import React from "react";
 import * as Yup from "yup";
 import { Formik, Form, useField } from "formik";
 import { Input, Label, Error, Submit } from "./FormStyles";
-import { ButtonGreen } from '../../globalStyles';
+import { ButtonOrange } from '../../globalStyles';
+import { P } from "../ModalInner/ModalInnerStyles";
 
 const InputComponent = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -45,9 +46,11 @@ const FormComponent = ({ handleSuccess }) => {
             label="Email"
             autoComplete="off"
           />
-          <ButtonGreen type="submit"> Submit </ButtonGreen>
+          <ButtonOrange type="submit"> Log in to account </ButtonOrange>
         </Form>
+              
       )}
+
     </Formik>
   );
 };

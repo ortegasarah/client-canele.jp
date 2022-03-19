@@ -6,6 +6,7 @@ import UserProfile from "../pages/UserProfile";
 import ProtectedPage from "../pages/ProtectedPage";
 import Auth from "../pages/Auth"
 import Shop from "../pages/Shop";
+import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
 
 const routes = (props) => {
@@ -35,6 +36,10 @@ const routes = (props) => {
     {
       path: PATHS.SHOP,
       element: <Shop {...props} />,
+    },
+    {
+      path: PATHS.PRODUCTDETAIL,
+      element: <ProductDetail {...props} />,
     },
     {
       path: PATHS.PROTECTEDPAGE,

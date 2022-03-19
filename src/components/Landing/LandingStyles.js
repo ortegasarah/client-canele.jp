@@ -62,7 +62,7 @@ export const Wrapper = styled.section `
   p {
     padding: 2rem 0;
     width: 70%;
-    color: #F88C3B;
+    color: var(--orange);
 
   }
   @media screen and (max-width: 700px){
@@ -90,11 +90,7 @@ export const TitleLanding = styled.h1 `
   font-size: 4em;
   width: 80%;
   margin: 4px 0;
-  color: #F88C3B;
-  /* color: #000;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1.4px;
-    -webkit-text-stroke-color: #F9C04C; */
+  color: var(--orange);
   letter-spacing: .2rem;
   line-height: 7rem;
   padding: 1rem 0;
@@ -103,9 +99,6 @@ export const TitleLanding = styled.h1 `
       font-size: 7em;
     }
     @media screen and (max-width: 700px){
-      -webkit-text-fill-color: #F9C04C;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: #000;
       width: 100%;
       font-size: 5em;
       margin: 2rem auto;

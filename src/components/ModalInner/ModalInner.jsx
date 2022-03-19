@@ -5,12 +5,10 @@ import Form from "../Form/Form"
 const Input = ({ handleSuccess }) => (
   <Container>
     {" "}
-    <H3> Join our Community</H3>
-    <P>
-      Sign up to our mailing list for first access to gear launches, camp
-      cooking recipes, and outdoor tips!
-    </P>
+    <H3> Your Account</H3>
     <Form handleSuccess={handleSuccess} />
+    <P>Forgot password?</P>
+    <P>Don't have an account? Sign up</P>
   </Container>
 );
 

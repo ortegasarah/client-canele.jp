@@ -7,7 +7,7 @@ import * as USER_HELPERS from "../utils/userToken";
 import * as Yup from "yup";
 import { Formik, Form, useField } from "formik";
 import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
-import { ButtonGreen } from '../globalStyles';
+import { ButtonOrange } from '../globalStyles';
 import { Wrapper } from "./LoginStyles"
 
 
@@ -130,7 +130,7 @@ const LogIn = ({ handleSuccess, authenticate }) => {
           </div>
         )}
 
-<ButtonGreen type="submit"> Submit </ButtonGreen>
+<ButtonOrange type="submit"> Submit </ButtonOrange>
 
       </Form>
       )}

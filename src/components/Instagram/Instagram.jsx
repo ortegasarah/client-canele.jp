@@ -7,13 +7,13 @@ import ig05 from "../../assets/ig-05.png";
 import ig06 from "../../assets/ig-06.png";
 import ig07 from "../../assets/ig-07.png";
 import { WrapperIg, Ig } from './InstagramStyles';
-import { H1Stroke } from "../../globalStyles";
+import { H1} from "../../globalStyles";
 
 
 const Instagram = (props) => {
     return (
         <>
-            <H1Stroke>@caneledujapon</H1Stroke>
+            <H1>@caneledujapon</H1>
             <WrapperIg>
                 <Ig src={ig01} alt="" />
                 <Ig src={ig02} alt="" />

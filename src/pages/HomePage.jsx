@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GlobalStyle, { ButtonBlack } from '../globalStyles';
+import GlobalStyle, { ButtonOrange } from '../globalStyles';
 
 /* COMPONENTS */
 import Navbar from "../components/Navbar/Navbar";
@@ -7,6 +7,8 @@ import Landing from "../components/Landing/Landing";
 import Modal from "../components/Modal/Modal";
 import ModalInner from "../components/ModalInner/ModalInner";
 import Instagram from "../components/Instagram/Instagram";
+import { CenterLogo, HeroImg, Logo } from "../components/Navbar/NavbarStyles";
+import Delivery from "../components/Delivery/Delivery";
 
 
 
@@ -26,8 +28,10 @@ function HomePage() {
           <ModalInner />
         </Modal>
       )}
+      <HeroImg><CenterLogo><Logo/></CenterLogo> </HeroImg>
       <Landing />
-      <ButtonBlack onClick={toggleModal}>Sign Up for updates </ButtonBlack>
+      <Delivery/>
+      <ButtonOrange onClick={toggleModal}>Sign Up for updates </ButtonOrange>
       <Instagram />
       </header>
     </div>

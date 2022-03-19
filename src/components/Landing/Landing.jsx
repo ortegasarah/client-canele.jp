@@ -1,7 +1,7 @@
 import React from "react";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
-import { ButtonBlack, ButtonGreen, ButtonOrange } from '../../globalStyles';
+import { ButtonOrange } from '../../globalStyles';
 import { LandingImg, LandingImgBox, FooterImg, FirstSection, Wrapper, TitleLanding, H2 } from './LandingStyles';
 import Marquee from "../Marquee/Marquee";
 import { Link } from "react-router-dom";
