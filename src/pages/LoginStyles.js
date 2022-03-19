@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import imgStore from '../assets/signup.jpg'
 
 export const Wrapper = styled.section `
     height: 100vh;
@@ -13,6 +14,10 @@ export const SectionForm = styled.div`
     padding: 2em;
 `
 
-export const Image = styled.img `
-   width: 50%;
+export const SectionImg = styled.div `
+  background-image: url(${imgStore});
+  background-size:cover;
+  background-position: center center;
+  width: 50%;
+  height: 100vh;
 `

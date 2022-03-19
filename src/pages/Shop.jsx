@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
     margin: 0 auto;
-    padding: 2rem 3rem;
+    padding: 2rem 0;
     /* height: 100vh; */
     display: flex;
     flex-wrap: wrap;

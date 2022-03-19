@@ -9,6 +9,5 @@ flex-wrap: wrap;
 background: var(--yellow);
 align-items: center;
 z-index: -100000;
-margin-top: 2rem;
 
 `

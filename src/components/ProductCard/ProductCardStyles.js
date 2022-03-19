@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DivCard = styled.div `
     padding: 2rem;
-    width: 600px;
+    width: 400px;
 `
 
 export const ImgProduct = styled.img `

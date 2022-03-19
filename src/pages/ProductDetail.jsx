@@ -27,16 +27,15 @@ console.log("product", product)
                 {!product.image_url ? <span>no image</span>  : product.image_url.map((image, idx) =>{
                     return (<img src={image} key={idx} alt={product.name}/>)
                 })}
-
-                    {/* <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452786/CaneleDuJapon/8box02_x5jzbf.png' width={800} />
-                    <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452766/CaneleDuJapon/6box04_t1ispp.jpg' width={800} />
-                    <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452766/CaneleDuJapon/6box02_ctsucl.jpg' width={800} />
-                    <img src='https://res.cloudinary.com/oatseven/image/upload/v1647452861/CaneleDuJapon/boxes_gnbkys.png' width={800} /> */}
                 </StickyImSgSection>
                 <TextDetail>
                     <H1>{product.name}</H1>
                     <p>{product.description}</p>
                     <ProductButtonSection>
+                    {/* {!product.flavors ? <span>no image</span>  : product.flavors.map((flavor, idx) =>{
+                    return (<p>{flavor}</p>)
+                })} */}
+
                         <ButtonOrange>White</ButtonOrange>
                         <ButtonOrange>Almond</ButtonOrange>
                         <ButtonOrange>Roasted green tea</ButtonOrange>

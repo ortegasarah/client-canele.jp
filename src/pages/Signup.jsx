@@ -8,9 +8,9 @@ import * as Yup from "yup";
 import { Formik, Form, useField } from "formik";
 import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
 import { ButtonOrange, H1 } from '../globalStyles';
-import { Wrapper, Image, SectionForm } from "./LoginStyles"
+import { Wrapper, SectionForm, SectionImg } from "./LoginStyles"
 import Img from '../assets/signup.jpg'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const InputComponent = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -74,8 +74,8 @@ export default function Signup({ authenticate, handleSuccess }) {
 
   return (
     <Wrapper>
-      <Image src={Img} alt="" />
-
+      <SectionImg>
+      </SectionImg>
       <SectionForm>
         <H1>Sign up</H1>
         <Formik
@@ -100,7 +100,7 @@ export default function Signup({ authenticate, handleSuccess }) {
                 label="Name"
                 required
               />
-                            <InputComponent
+              <InputComponent
                 id="input-email"
                 type="text"
                 name="email"

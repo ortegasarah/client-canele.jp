@@ -8,8 +8,7 @@ import * as Yup from "yup";
 import { Formik, Form, useField } from "formik";
 import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
 import { ButtonOrange, H1 } from '../globalStyles';
-import { Wrapper, Image, SectionForm } from "./LoginStyles"
-import Img from '../assets/signup.jpg'
+import { Wrapper, SectionForm, SectionImg } from "./LoginStyles"
 import {Link} from 'react-router-dom'
 
 const InputComponent = ({ label, ...props }) => {
@@ -73,8 +72,8 @@ const LogIn = ({ handleSuccess, authenticate }) => {
 
   return (
     <Wrapper>
-      <Image src={Img} alt="" />
-
+      <SectionImg>
+      </SectionImg>
       <SectionForm>
         <H1>Log In</H1>
         <Formik
