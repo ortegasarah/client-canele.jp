@@ -14,17 +14,16 @@ import { Link as LinkB } from "react-router-dom";
         /* background-color: #fff; */
         font-family: Open-Sans, Helvetica, Sans-Serif;
         /* overflow-x: hidden; */
+        overflow: auto;
 
     }
     body { 
         background-color: var(--beige);
+
+}
     }
 
-    h1 {
-        /* font-family: 'Sansita', sans-serif; */
-        font-family: Open-Sans, Helvetica, Sans-Serif;
-        color: var(--orange);
-    }
+
 
 
     p {
@@ -47,9 +46,16 @@ export const H1 = styled.h1`
     margin: 0 auto;
     padding: 10px 0 ;
     font-weight: 200;
-    font-size: 90px;
+    font-size: 7rem;
     text-align: left;
     color: var(--orange);
+
+    @media screen and (max-width: 1310px) {
+        font-size: 5rem;  
+    }
+    @media screen and (max-width: 760px) {
+        font-size:3rem;  
+    }
 `
 
 
@@ -137,9 +143,9 @@ export const ButtonCart = styled.button`
 
 
 export const AbsoluteCenter = css`
-  left: 50%;
-  top: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
 `;
 export default GlobalStyle

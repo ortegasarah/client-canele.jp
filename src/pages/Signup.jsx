@@ -26,6 +26,8 @@ const InputComponent = ({ label, ...props }) => {
 export default function Signup({ authenticate, handleSuccess }) {
 
   const schema = Yup.object().shape({
+    firstName: Yup.string().required("Required fiels"),    
+    lastName: Yup.string().required("Required fiels"),
     name: Yup.string().required("Required fiels"),
     email: Yup.string()
       .email("Must be a valid email address")
@@ -37,12 +39,13 @@ export default function Signup({ authenticate, handleSuccess }) {
 
 
   const [form, setForm] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
+    name: "",
     password: "",
   });
-  const { firstname, lastname, email, password } = form;
+  const { firstName, lastName, email,name, password } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -54,9 +57,10 @@ export default function Signup({ authenticate, handleSuccess }) {
   function handleFormSubmission(event) {
     event.preventDefault();
     const credentials = {
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
+      name,
       password,
     };
     signup(credentials).then((res) => {
@@ -82,9 +86,10 @@ export default function Signup({ authenticate, handleSuccess }) {
         <H1>Sign up</H1>
         <Formik
           initialValues={{
-            firstname: "",
-            lastname: "",
+            firstName: "",
+            lastName: "",
             email: "",
+            name: '',
             password: ""
           }}
           onSubmit={handleSuccess}
@@ -93,22 +98,22 @@ export default function Signup({ authenticate, handleSuccess }) {
           {() => (
             <Form onSubmit={handleFormSubmission} className="signup__form">
               <InputComponent
-                id="input-name"
+                id="input-firstname"
                 type="text"
                 name="name"
                 placeholder="First name"
-                value={firstname}
+                value={firstName}
                 onChange={handleInputChange}
                 autoComplete="off"
                 // label="First name"
                 required
               />
               <InputComponent
-                id="input-name"
+                id="input-lastname"
                 type="text"
                 name="name"
                 placeholder="Last name"
-                value={lastname}
+                value={lastName}
                 onChange={handleInputChange}
                 autoComplete="off"
                 // label="Last name"
@@ -120,6 +125,17 @@ export default function Signup({ authenticate, handleSuccess }) {
                 name="email"
                 placeholder="Email address"
                 value={email}
+                onChange={handleInputChange}
+                autoComplete="off"
+                // label="Email"
+                required
+              />
+                <InputComponent
+                id="input-name"
+                type="text"
+                name="name"
+                placeholder="name"
+                value={name}
                 onChange={handleInputChange}
                 autoComplete="off"
                 // label="Email"

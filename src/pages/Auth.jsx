@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { login } from "../services/auth";
-import { useNavigate } from "react-router-dom";
-import "./Signup";
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
 import * as Yup from "yup";
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from "../services/auth";
+import "./Signup";
 import { Formik, Form, useField } from "formik";
+
+/* STYLES */
 import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
 import { ButtonOrange, H1 } from '../globalStyles';
 import { Wrapper, SectionForm, SectionImg } from "./LoginStyles"
-import {Link} from 'react-router-dom'
 
 const InputComponent = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -40,12 +41,6 @@ const LogIn = ({ handleSuccess, authenticate }) => {
       .email("Must be a valid email address")
       .required("Required fiels")
   });
-
-
-
-
-
-
 
 
   function handleInputChange(event) {

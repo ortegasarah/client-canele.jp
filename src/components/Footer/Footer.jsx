@@ -1,13 +1,12 @@
 import React from "react";
-import logo2 from "../../assets/logo-full.svg";
-import { SectionFooter } from "./FooterStyles"
+import { SectionFooter, WrapperFooter, ColummFooter, LogoFooter } from "./FooterStyles"
 
 
 const locations = document.querySelectorAll("section.times.div")
 locations.forEach(location => {
     const output = document = location.querySelector("output")
 
-    output.innerHTML= "hi"
+    output.innerHTML = "hi"
 })
 
 const Footer = () => {
@@ -15,31 +14,33 @@ const Footer = () => {
         <>
 
             <SectionFooter>
-            <img src={logo2} alt="" width="300px"  />
-                    <div>
-                        <h4>Account</h4>
+                <LogoFooter />
+                <WrapperFooter>
+                    <ColummFooter>
+                        <h3>Account</h3>
                         <ul>
                             <li>Sign Up</li>
                             <li>Log in</li>
                         </ul>
-                    </div>
+                    </ColummFooter>
 
-                    <div>
-                        <h4>Our company</h4>
+                    <ColummFooter>
+                        <h3>Our company</h3>
                         <ul>
                             <li>Shop</li>
                             <li>Our Story</li>
                             <li>Who are we?</li>
                         </ul>
-                    </div>
+                    </ColummFooter>
 
-                    <div>
-                        <h4>Resources</h4>
+                    <ColummFooter>
+                        <h3>Resources</h3>
                         <ul>
                             <li>F.A.Q</li>
                             <li>Contact</li>
                         </ul>
-                    </div>
+                    </ColummFooter>
+                </WrapperFooter>
             </SectionFooter>
         </>
     )
