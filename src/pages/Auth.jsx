@@ -16,7 +16,7 @@ const InputComponent = ({ label, ...props }) => {
 
   return (
     <Label>
-      {label} : {meta.touched && meta.error && <Error>{meta.error}</Error>}
+      {meta.touched && meta.error && <Error>{meta.error}</Error>}
       <Input {...field} {...props} />
     </Label>
   );
@@ -90,11 +90,10 @@ const LogIn = ({ handleSuccess, authenticate }) => {
                 id="input-username"
                 type="text"
                 name="email"
-                placeholder="email"
+                placeholder="Email"
                 value={email}
                 onChange={handleInputChange}
                 autoComplete="off"
-                label="Email"
                 required
               />
 
@@ -106,7 +105,6 @@ const LogIn = ({ handleSuccess, authenticate }) => {
                 placeholder="Password"
                 value={password}
                 onChange={handleInputChange}
-                label="Password"
                 autoComplete="off"
                 required
                 minLength="8"

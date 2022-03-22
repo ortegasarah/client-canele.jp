@@ -5,8 +5,14 @@ export const Input = styled.input`
   box-sizing: border-box;
   font-size: 18px;
   margin: 8px 0 24px;
-  padding: 12px;
-  width: 100%;
+  padding: 20px;
+  width: 50%;
+  background-color: transparent;
+  border: 1px solid rgba(49,49,49,.2);
+  color: #313131;
+  font-size: 1em;
+  font-weight: 500;
+  
 
   &:focus {
     border-color: var(--yellow);
@@ -14,6 +20,7 @@ export const Input = styled.input`
 
   @media (max-width: 700px) {
     font-size: 16px;
+    width: 100%;
   }
 `;
 

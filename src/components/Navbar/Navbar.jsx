@@ -13,6 +13,7 @@ import GlobalStyle, { ButtonOrange, ButtonWhite } from '../../globalStyles';
 import Modal from "../Modal/Modal";
 import ModalInner from "../ModalInner/ModalInner";
 import Cart from "../Cart/Cart";
+import CartBtn from "../CartBtn";
 
 /* IMAGES */
 import signup from "../../assets/avatar-profile-user-account.svg";
@@ -93,7 +94,7 @@ const Navbar = ({ toggle, ...props }) => {
             </Modal>
           )}
           <img src={cart} alt="cart" height="40px" onClick={toggleCart} />
-
+          <h1  onClick={toggleCart}> <CartBtn /></h1>
 
           <Link to={PATHS.SHOP}><ButtonOrange> Order</ButtonOrange>  </Link>
         </NavBtn>

@@ -17,7 +17,7 @@ const InputComponent = ({ label, ...props }) => {
 
   return (
     <Label>
-      {label} : {meta.touched && meta.error && <Error>{meta.error}</Error>}
+      {label}  {meta.touched && meta.error && <Error>{meta.error}</Error>}
       <Input {...field} {...props} />
     </Label>
   );
@@ -37,11 +37,12 @@ export default function Signup({ authenticate, handleSuccess }) {
 
 
   const [form, setForm] = useState({
-    name: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
   });
-  const { name, email, password } = form;
+  const { firstname, lastname, email, password } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -53,7 +54,8 @@ export default function Signup({ authenticate, handleSuccess }) {
   function handleFormSubmission(event) {
     event.preventDefault();
     const credentials = {
-      name,
+      firstname,
+      lastname,
       email,
       password,
     };
@@ -80,7 +82,8 @@ export default function Signup({ authenticate, handleSuccess }) {
         <H1>Sign up</H1>
         <Formik
           initialValues={{
-            name: "",
+            firstname: "",
+            lastname: "",
             email: "",
             password: ""
           }}
@@ -93,22 +96,33 @@ export default function Signup({ authenticate, handleSuccess }) {
                 id="input-name"
                 type="text"
                 name="name"
-                placeholder="name"
-                value={name}
+                placeholder="First name"
+                value={firstname}
                 onChange={handleInputChange}
                 autoComplete="off"
-                label="Name"
+                // label="First name"
+                required
+              />
+              <InputComponent
+                id="input-name"
+                type="text"
+                name="name"
+                placeholder="Last name"
+                value={lastname}
+                onChange={handleInputChange}
+                autoComplete="off"
+                // label="Last name"
                 required
               />
               <InputComponent
                 id="input-email"
                 type="text"
                 name="email"
-                placeholder="email"
+                placeholder="Email address"
                 value={email}
                 onChange={handleInputChange}
                 autoComplete="off"
-                label="Email"
+                // label="Email"
                 required
               />
 
@@ -120,11 +134,13 @@ export default function Signup({ authenticate, handleSuccess }) {
                 placeholder="Password"
                 value={password}
                 onChange={handleInputChange}
-                label="Password"
+                // label="Password"
                 autoComplete="off"
                 required
                 minLength="8"
               />
+
+
 
               {error && (
                 <div className="error-block">

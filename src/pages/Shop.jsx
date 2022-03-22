@@ -5,8 +5,8 @@ import { FooterImg, H2 } from "../components/Landing/LandingStyles"
 import { H1 } from "../globalStyles";
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react";
-import { getProduct } from '../Redux/actions/productActions'
-import { Route } from "react-router-dom";
+import { getProduct, getProductDetails } from '../Redux/actions/productActions'
+import { Route, useParams } from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 import { Link } from "react-router-dom";
 
@@ -35,6 +35,8 @@ const Shop = () => {
         dispatch(getProduct());
     }, [dispatch]);
 
+
+
     // const total = products.reduce(
     //     (acc, item) => (acc += item.info.price * item.quantity),
     //     0
@@ -48,7 +50,6 @@ const Shop = () => {
 
             <Wrapper>
 
-                {/* <Link to="/ProductDetail" component={ProductDetail}> <h1>One product</h1></Link> */}
                     {loading ? <H2>Loading...</H2> : products.map((products) => (
                         <ProductCard
                             key={products._id}

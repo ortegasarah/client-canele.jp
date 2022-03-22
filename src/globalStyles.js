@@ -93,7 +93,8 @@ export const ButtonOrange = styled.button`
     border: 2px solid var(--orange);
     width: fit-content;
     background-color: transparent;
-    margin: 10px 0;
+    margin: 10px auto;
+    display: flex;
     &:hover {
         background-color: var(--orange);
         border: 2px solid var(--orange);

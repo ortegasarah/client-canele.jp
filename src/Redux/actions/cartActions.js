@@ -2,8 +2,8 @@ import * as actionTypes from '../constants/cartConst'
 import { getCartWs, deleteCartWs, createCartWs } from '../../services/cart-ws'
 
 
-export const addToCart = (id, quantity) => async (dispatch, getState) =>{
-    const { data } = await createCartWs({product:id, quantity})
+export const addToCart = (id, quantity, match) => async (dispatch, getState) =>{
+    const { data } = await createCartWs({product:id, quantity, match})
 
 
       

@@ -8,6 +8,7 @@ import Auth from "../pages/Auth"
 import Shop from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
+import CartPage from "../pages/CartPage";
 
 const routes = (props) => {
   const { user } = props;
@@ -40,6 +41,9 @@ const routes = (props) => {
     {
       path: PATHS.PRODUCTDETAIL,
       element: <ProductDetail {...props} />,
+    },    {
+      path: PATHS.CART,
+      element: <CartPage {...props} />,
     },
     {
       path: PATHS.PROTECTEDPAGE,

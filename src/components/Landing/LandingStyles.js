@@ -108,6 +108,7 @@ export const TitleLanding = styled.h1 `
 `
 
 export const H2 = styled.h2 `
+      color: var(--orange);
       margin: 0 auto;
       font-size: 40px;
    @media screen and (max-width: 700px){

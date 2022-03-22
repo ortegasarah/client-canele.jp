@@ -2,14 +2,22 @@
 import { ButtonOrange, ButtonWhite, H1 } from "../../globalStyles"
 import CartItem from "../CartItem/CartItem"
 import { CartSection, CartContainer } from "./CartStyles"
+import { useSelector, useDispatch} from 'react-redux'
+// import { removeFromCart } from '../Redux/actions/cartActions'
+import { cartReducers} from '../../Redux/reducers/cartRerducers'
+
+
 
 const Cart = () => {
-
+    
     return (
         <>
             <CartSection>
                 <H1>Cart</H1>
                 <CartContainer>
+
+                    {/* {state.length !== 0 && state.map(cartReducers)} */}
+
                     <CartItem />
                     <CartItem />
                     <CartItem />
