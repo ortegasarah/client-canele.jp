@@ -93,8 +93,7 @@ const Navbar = ({ toggle, ...props }) => {
               <Cart />
             </Modal>
           )}
-          <img src={cart} alt="cart" height="40px" onClick={toggleCart} />
-          <h1  onClick={toggleCart}> <CartBtn /></h1>
+          <h1  onClick={toggleCart}> Cart(1)</h1>
 
           <Link to={PATHS.SHOP}><ButtonOrange> Order</ButtonOrange>  </Link>
         </NavBtn>

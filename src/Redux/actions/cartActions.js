@@ -5,8 +5,6 @@ import { getCartWs, deleteCartWs, createCartWs } from '../../services/cart-ws'
 export const addToCart = (id, quantity, match) => async (dispatch, getState) =>{
     const { data } = await createCartWs({product:id, quantity, match})
 
-
-      
     dispatch({
         type: actionTypes.ADD_TO_CART,
         payload: {

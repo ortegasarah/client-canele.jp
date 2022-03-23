@@ -34,27 +34,18 @@ const Shop = () => {
     useEffect(() => {
         dispatch(getProduct());
     }, [dispatch]);
-
-
-
-    // const total = products.reduce(
-    //     (acc, item) => (acc += item.info.price * item.quantity),
-    //     0
-    // );
-
-
+    
     return (
         <div>
-            <H1>カヌレ Canelés</H1>                <H1>ドリンク Drinks</H1>
-
-
+            <H1>カヌレ Canelés</H1>
+            <H1>ドリンク Drinks</H1>
             <Wrapper>
 
-                    {loading ? <H2>Loading...</H2> : products.map((products) => (
-                        <ProductCard
-                            key={products._id}
-                            {...products}
-                        />))}
+                {loading ? <H2>Loading...</H2> : products.map((products) => (
+                    <ProductCard
+                        key={products._id}
+                        {...products}
+                    />))}
             </ Wrapper >
         </div>
 

@@ -15,9 +15,6 @@ const Cart = () => {
             <CartSection>
                 <H1>Cart</H1>
                 <CartContainer>
-
-                    {/* {state.length !== 0 && state.map(cartReducers)} */}
-
                     <CartItem />
                     <CartItem />
                     <CartItem />
