@@ -26,26 +26,29 @@ const InputComponent = ({ label, ...props }) => {
 export default function Signup({ authenticate, handleSuccess }) {
 
   const schema = Yup.object().shape({
-    firstName: Yup.string().required("Required fiels"),    
-    lastName: Yup.string().required("Required fiels"),
-    name: Yup.string().required("Required fiels"),
+    firstName: Yup.string().required("Required fields"),
+    lastName: Yup.string().required("Required fields"),
     email: Yup.string()
       .email("Must be a valid email address")
-      .required("Required fiels")
+      .required("Required fiels"),
+
+    password: Yup.string()
+      .required("Required fields")
+      .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
+      .min(8),
   });
 
-
-
+  const [showPassword, setShowPassword] = useState(false)
+  const handleShowPassword = () => setShowPassword((prevShowPassword)=> !prevShowPassword )
 
 
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    name: "",
     password: "",
   });
-  const { firstName, lastName, email,name, password } = form;
+  const { firstName, lastName, email, password } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -57,10 +60,9 @@ export default function Signup({ authenticate, handleSuccess }) {
   function handleFormSubmission(event) {
     event.preventDefault();
     const credentials = {
-      firstName,
       lastName,
       email,
-      name,
+      firstName,
       password,
     };
     signup(credentials).then((res) => {
@@ -83,13 +85,12 @@ export default function Signup({ authenticate, handleSuccess }) {
       <SectionImg>
       </SectionImg>
       <SectionForm>
-        <H1>Sign up</H1>
+        <H1>Create account</H1>
         <Formik
           initialValues={{
             firstName: "",
             lastName: "",
             email: "",
-            name: '',
             password: ""
           }}
           onSubmit={handleSuccess}
@@ -97,22 +98,23 @@ export default function Signup({ authenticate, handleSuccess }) {
         >
           {() => (
             <Form onSubmit={handleFormSubmission} className="signup__form">
+
               <InputComponent
-                id="input-firstname"
+                id="input-firstName"
                 type="text"
-                name="name"
-                placeholder="First name"
+                name="firstName"
+                placeholder="First Name"
                 value={firstName}
                 onChange={handleInputChange}
                 autoComplete="off"
-                // label="First name"
+                // label="Email"
                 required
               />
               <InputComponent
                 id="input-lastname"
                 type="text"
-                name="name"
-                placeholder="Last name"
+                name="lastName"
+                placeholder="Last Name"
                 value={lastName}
                 onChange={handleInputChange}
                 autoComplete="off"
@@ -130,22 +132,13 @@ export default function Signup({ authenticate, handleSuccess }) {
                 // label="Email"
                 required
               />
-                <InputComponent
-                id="input-name"
-                type="text"
-                name="name"
-                placeholder="name"
-                value={name}
-                onChange={handleInputChange}
-                autoComplete="off"
-                // label="Email"
-                required
-              />
+
 
 
               <InputComponent
                 id="input-password"
-                type="password"
+                type={showPassword ? "text" : "password"}
+                handleShowPassword={handleShowPassword}
                 name="password"
                 placeholder="Password"
                 value={password}
@@ -154,6 +147,7 @@ export default function Signup({ authenticate, handleSuccess }) {
                 autoComplete="off"
                 required
                 minLength="8"
+
               />
 
 
@@ -165,14 +159,14 @@ export default function Signup({ authenticate, handleSuccess }) {
                 </div>
               )}
 
-              <ButtonOrange type="submit"> Submit </ButtonOrange>
+              <ButtonOrange type="submit"> Create </ButtonOrange>
 
             </Form>
           )}
         </Formik>
         <p> Forgot password?</p>
 
-        <Link to={PATHS.AUTH}><p> Already have an account? Login</p></Link>
+        <Link to={PATHS.LOGINPAGE}><p> Already have an account? Login</p></Link>
       </SectionForm>
     </Wrapper>
   );

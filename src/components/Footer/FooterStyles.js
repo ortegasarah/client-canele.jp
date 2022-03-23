@@ -8,7 +8,7 @@ export const SectionFooter = styled.section `
     display: flex;
     padding: 5em 2em;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background: var(--yellow);
     align-items: center;
     z-index: -100000;

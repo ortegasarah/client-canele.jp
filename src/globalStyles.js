@@ -14,7 +14,6 @@ import { Link as LinkB } from "react-router-dom";
         /* background-color: #fff; */
         font-family: Open-Sans, Helvetica, Sans-Serif;
         /* overflow-x: hidden; */
-        overflow: auto;
 
     }
     body { 

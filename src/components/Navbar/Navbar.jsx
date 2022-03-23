@@ -62,7 +62,7 @@ const Navbar = ({ toggle, ...props }) => {
           {props.user ? (
             <>
               <NavLink to={PATHS.USERPROFILE}>
-                User Name
+                Hi
               </NavLink>
               <ButtonOrange onClick={props.handleLogout}> Logout
               </ButtonOrange>
@@ -72,7 +72,7 @@ const Navbar = ({ toggle, ...props }) => {
               {/* <Link to={PATHS.SIGNUPPAGE} className="authLink">
                 <img src={signup} alt="signup" height="40px" />
               </Link> */}
-              <Link to={PATHS.AUTH} className="authLink">
+              <Link to={PATHS.LOGINPAGE} className="authLink">
                 Account
               </Link>
               {showModal && (

@@ -91,11 +91,12 @@ export default function App() {
           <ModalInner />
         </Modal>
       )}
-      {/* {isMobile ? 
-      <Sidebar isOpen={isOpen} toggle={toggle}/>
+      {isMobile ? 
+      <Sidebar isOpen={isOpen} toggle={toggle} handleLogout={handleLogout} user={user}/>
       :
       <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
-      } */}
+      }
+      
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />

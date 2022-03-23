@@ -17,9 +17,9 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
       <SidebarWrapper>
-        <Link to={PATHS.AUTH}>
+        {/* <Link to={PATHS.AUTH}> */}
           <img src={cart} alt="cart" height="40px" />
-        </Link>
+        {/* </Link> */}
         <SidebarMenu>
           <SidebarLink to="/" onClick={toggle}> SHOP </SidebarLink>
           <SidebarLink to="/" onClick={toggle}> OUR STORY  </SidebarLink>
@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="/" onClick={toggle}> Sign up  </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <Link to={PATHS.AUTH}><ButtonOrange>Log in</ButtonOrange></Link>
+          <Link to={PATHS.LOGINPAGE}><ButtonOrange>Log in</ButtonOrange></Link>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

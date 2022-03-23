@@ -4,7 +4,7 @@ import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import UserProfile from "../pages/UserProfile";
 import ProtectedPage from "../pages/ProtectedPage";
-import Auth from "../pages/Auth"
+import Auth from "../pages/NoLogIn"
 import Shop from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
@@ -30,10 +30,10 @@ const routes = (props) => {
       path: PATHS.LOGINPAGE,
       element: <Login {...props} />,
     },
-    {
-      path: PATHS.AUTH,
-      element: <Auth {...props} />,
-    },
+    // {
+    //   path: PATHS.AUTH,
+    //   element: <Auth {...props} />,
+    // },
     {
       path: PATHS.SHOP,
       element: <Shop {...props} />,

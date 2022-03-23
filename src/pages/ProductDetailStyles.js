@@ -31,7 +31,7 @@ export const TextDetail = styled.div `
     top: var(--offset);
     padding: 0  0 4em 4em;
     height: 100vh;
-    top: 6rem;
+    top: 10rem;
 `
 
 export const ProductButtonSection = styled.div `

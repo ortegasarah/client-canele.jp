@@ -70,7 +70,7 @@ const LogIn = ({ handleSuccess, authenticate }) => {
       <SectionImg>
       </SectionImg>
       <SectionForm>
-        <H1>Log In</H1>
+        <H1>Log In Hi</H1>
         <Formik
           initialValues={{
             name: "",
@@ -82,7 +82,7 @@ const LogIn = ({ handleSuccess, authenticate }) => {
           {() => (
             <Form onSubmit={handleFormSubmission} className="signup__form">
               <InputComponent
-                id="input-username"
+                id="input-email"
                 type="text"
                 name="email"
                 placeholder="Email"

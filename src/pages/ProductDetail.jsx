@@ -15,14 +15,14 @@ const ProductDetail = (match, history) => {
     const productDetails = useSelector(state => state.getProductDetails);
     const { loading, error, product } = productDetails;
 
-        useEffect(()=> {
-            if(product && match.params.id !== product._id){
-                dispatch(getProductDetails(match.params.id))
-            }
-        },[dispatch, product, match])
-    // useEffect(() => {
-    //     dispatch(getProductDetails(params.id))
-    // }, [])
+        // useEffect(()=> {
+        //     if(product && match.params.id !== product.id){
+        //         dispatch(getProductDetails(match.params.id))
+        //     }
+        // },[dispatch, product, match])
+    useEffect(() => {
+        dispatch(getProductDetails(params.id))
+    }, [])
     // console.log("product", product)
 
 /* CART */
