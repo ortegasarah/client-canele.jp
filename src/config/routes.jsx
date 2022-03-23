@@ -19,7 +19,11 @@ const routes = (props) => {
     },
     {
       path: PATHS.USERPROFILE,
-      element: <UserProfile {...props} />,
+      element: user ? (
+        <UserProfile {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
+      ),
     },
     {
       path: PATHS.SIGNUPPAGE,
