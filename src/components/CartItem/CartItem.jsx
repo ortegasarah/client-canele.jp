@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import imgCart from '../../assets/ig-02.png'
 import { CartSection } from '../Cart/CartStyles'
 
-const CartItem = () => {
+const CartItem = (product, qtyChangeHandler, removeHandler) => {
 
 
     return (
@@ -16,6 +16,17 @@ const CartItem = () => {
 
                 <button>remove</button>
                 <button>add</button>
+
+                <select value={product.quantity} onChange={(e) => qtyChangeHandler(product, e.target.value)}>
+                    {[...Array(product.stock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                        </option>
+                    ))}
+                    
+                </select>
+                <button onClick={()=> removeHandler(product)}>delete</button>
+
             </CartSection>
         </>
 

@@ -24,8 +24,13 @@ export const cartReducers = ( state = { cartItems: [] }, action) => {
                 ...state,
                 cartItems: state.cartItems.filter((x) => x.product !== action.payload)
             };
+        case actionTypes.ADJUST_QTY:
+            return{
+
+            }
             
         default:
             return state;
     }
 }
+

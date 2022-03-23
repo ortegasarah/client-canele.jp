@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { getLoggedIn, logout } from "./services/auth";
+import routes from "./config/routes";
+import * as USER_HELPERS from "./utils/userToken";
+
+/* STYLES */
+import GlobalStyle from './globalStyles';
+
+/* COMPONENTS */
+import Sidebar from "./components/Sidebar/Sidebar";
+import ScrollToTop from "./components/ScrollToTop.";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal/Modal";
 import ModalInner from "./components/ModalInner/ModalInner";
 import Footer from "./components/Footer/Footer";
-import { getLoggedIn, logout } from "./services/auth";
-import routes from "./config/routes";
-import * as USER_HELPERS from "./utils/userToken";
-import GlobalStyle, { ButtonBlack } from './globalStyles';
-import Sidebar from "./components/Sidebar/Sidebar";
-import ScrollToTop from "./components/ScrollToTop.";
 
 
 export default function App() {

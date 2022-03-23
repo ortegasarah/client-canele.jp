@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const CartSection = styled.section `
-    background-color: var(--yellow);
-    color: var(--beige);
     p, h1{
         color: var(--beige);
     }

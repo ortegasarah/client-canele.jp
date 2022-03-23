@@ -16,7 +16,7 @@ export const createCartWs= ( data ) => {
 
 export const deleteCartWs = ( id ) => {
     return api
-    .delete(`/cart/delete`)
+    .delete("/cart/delete")
     .then(successStatus)
     .catch(internalServerError)
 }
