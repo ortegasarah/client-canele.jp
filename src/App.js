@@ -10,6 +10,7 @@ import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 import GlobalStyle, { ButtonBlack } from './globalStyles';
 import Sidebar from "./components/Sidebar/Sidebar";
+import ScrollToTop from "./components/ScrollToTop.";
 
 
 export default function App() {
@@ -86,6 +87,7 @@ export default function App() {
     <div className="App">
       <>      
       <GlobalStyle />
+      <ScrollToTop />
       {showModal && (
         <Modal toggleModal={toggleModal}>
           <ModalInner />
