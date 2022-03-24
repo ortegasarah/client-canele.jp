@@ -22,19 +22,24 @@ export const cartReducers = (state = initialState, action) => {
             }
             return {
                 ...state,
-                items : { ...state.items, [ product.info._id ] : product }
+                items: {
+                    ...state.items,
+                    [product.info._id]: product
+                }
             }
-        case actionTypes.REMOVE_FROM_CART:
-            return {
-                ...state,
-                cartItems: state.cartItems.filter((x) => x.product !== action.payload)
-            };
-        case actionTypes.ADJUST_QTY:
-            return {
+            case actionTypes.REMOVE_FROM_CART:
+                const items = state.items
+                delete items[action.payload]
+                return {
+                    ...state,
+                    items
+                };
+            case actionTypes.ADJUST_QTY:
+                return {
 
-            }
+                }
 
-            default:
-                return state;
+                default:
+                    return state;
     }
 }

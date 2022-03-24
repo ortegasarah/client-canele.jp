@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCocktail } from '@fortawesome/free-solid-svg-icons'
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 /* STYLES */
@@ -40,7 +37,6 @@ const ProductDetail = () => {
     /* CART */
     const addToCartHandler = () => {
         dispatch(addToCart(product, quantity));
-        console.log("added to acrt")
     };
 
     return (

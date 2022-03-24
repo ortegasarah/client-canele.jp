@@ -1,31 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import imgCart from '../../assets/ig-02.png'
 import { CartSection } from '../Cart/CartStyles'
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { getProductDetails } from '../../Redux/actions/productActions'
+import { QuantityButton } from '../../pages/ProductDetailStyles'
+import { FaMinus, FaPlus } from "react-icons/fa";
+import { MdDelete } from "react-icons/md"
+import { DeleteButton } from '../../globalStyles'
 
-const CartItem = (product, qtyChangeHandler, removeHandler) => {
-
+const CartItem = ({ name, image_url, price, _id, removeProduct = () => { }, ...props }) => {
+    const [quantity, setQuantity] = useState(1)
 
     return (
         <>
             <CartSection>
-                <img src={imgCart} alt="" width={100} />
-                <div>CartItem</div>
-                <Link to={`/product/${623496}`}><h1>Product Name</h1></Link>
-                <p>£12984</p>
+                {/* <img src={product.image_url[0]} alt={product.name} width={100} /> */}
+                <Link to={`/products/${_id}`}><h1>{name}</h1></Link>
+                <p>円{price}</p>
 
-                <button>remove</button>
-                <button>add</button>
-
-                <select value={product.quantity} onChange={(e) => qtyChangeHandler(product, e.target.value)}>
-                    {[...Array(product.stock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                        </option>
-                    ))}
-                    
-                </select>
-                <button onClick={()=> removeHandler(product)}>delete</button>
+                <DeleteButton onClick={removeProduct}>
+                    <MdDelete />
+                </DeleteButton>
+                {/* 
+                <button onClick={() => removeHandler(product)}>delete</button> */}
 
             </CartSection>
         </>

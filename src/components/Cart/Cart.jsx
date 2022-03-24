@@ -1,28 +1,53 @@
 /* COMPONENTS */
-import { ButtonOrange, ButtonWhite, H1 } from "../../globalStyles"
+import { ButtonOrange, ButtonWhite, H1, DeleteButton } from "../../globalStyles"
 import CartItem from "../CartItem/CartItem"
 import { CartSection, CartContainer } from "./CartStyles"
-import { useSelector, useDispatch} from 'react-redux'
-// import { removeFromCart } from '../Redux/actions/cartActions'
-import { cartReducers} from '../../Redux/reducers/cartRerducers'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeFromCart } from '../../Redux/actions/cartActions'
+import { cartReducers } from '../../Redux/reducers/cartRerducers'
 import { Link } from "react-router-dom"
 import * as PATHS from "../../utils/paths";
-
+import { denormalizeData } from '../../utils/formatter'
+import { useEffect, useState } from "react";
 
 
 const Cart = () => {
-    
+    const [cartItems, setCartItems] = useState([])
+    const items = useSelector(state => state.cart.items);
+    const dispatch = useDispatch();
+    const total = denormalizeData(items).reduce((acc, item) => (acc += item.info.price * item.quantity), 0)
+    const removeProduct = (id, idx) => {
+        dispatch(removeFromCart(id))
+        let newArray = cartItems.filter(product => product.info._id !== id)
+        setCartItems(newArray)
+        console.log("index", idx, cartItems)
+
+    }
+    useEffect(() => {
+        setCartItems(denormalizeData(items));
+    }, [])
+
+
     return (
         <>
             <CartSection>
                 <H1>Cart</H1>
                 <CartContainer>
-                    <CartItem />
-                    <CartItem />
-                    <CartItem />
+                    {cartItems.length === 0 ? (
+                        <>
+                            <p>Your cart is empty</p>
+                            <p><Link to="/">Go Back</Link></p>
+                        </>
+                    ) : cartItems.map((products, idx) =>
+                        <CartItem
+                            key={products.info._id}
+                            removeProduct={() => removeProduct(products.info._id, idx)}
+                            {...products.info}
+
+                        />)}
                 </CartContainer>
                 <p>Subtotal (0) Items</p>
-                <p>Total Price</p>
+                <p>Total 円{total}</p>
                 <ButtonWhite>Checkout</ButtonWhite>
                 <Link to={PATHS.CART}>View your cart</Link>
             </CartSection>

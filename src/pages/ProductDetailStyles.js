@@ -53,7 +53,6 @@ export const QuantityButton = styled.div`
     font-weight: 500;
     text-decoration: none;
     text-align: center;
-    display: inline-block;
     cursor: pointer;
     transition: 0.3s;
     padding: 0.5em 2em;

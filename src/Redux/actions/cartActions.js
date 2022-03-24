@@ -7,12 +7,7 @@ import {
 
 
 export const addToCart = (product, quantity) => async (dispatch, getState) => {
-    // const {
-    //     data
-    // } = await createCartWs({
-    //     product: id,
-    //     quantity,
-    // })
+
 
     dispatch({
         type: actionTypes.ADD_TO_CART,
@@ -25,6 +20,7 @@ export const addToCart = (product, quantity) => async (dispatch, getState) => {
 };
 
 export const removeFromCart = (id) => (dispatch, getState) => {
+    console.log('es el id', id)
     dispatch({
         type: actionTypes.REMOVE_FROM_CART,
         payload: id
@@ -47,4 +43,5 @@ export const adjustQty = (id, value, quantity) => async (dispatch, getState) => 
             quantity: value
         }
     })
+    localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems))
 }

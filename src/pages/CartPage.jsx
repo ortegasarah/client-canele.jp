@@ -19,6 +19,10 @@ import {
 
 
 const CartPage = () => {
+
+
+
+    /* PAYPAL */
     // This values are the props in the UI
     const amount = "2";
     const currency = "JPY";
@@ -81,7 +85,7 @@ const CartPage = () => {
 
 
     const dispatch = useDispatch()
-    const items = useSelector(state => state.cart.items);
+    const items = useSelector((state) => state.cart.items);
     const cartItems = denormalizeData(items);
     const total = denormalizeData(items).reduce((acc, item) => (acc += item.info.price * item.quantity), 0)
 
@@ -91,6 +95,20 @@ const CartPage = () => {
     const removeHandler = (id) => {
         dispatch(removeFromCart(id))
     }
+
+    const handleCreateOrder = () => {
+        const items = cartItems.map((item) => ({
+            quantity: item.quantity,
+            product: item.info._id,
+        }));
+        const order = { items, total };
+        console.log(items);
+        // dispatch(createOrder(order));
+    };
+    // const handleClick = (product) => {
+    //     dispatch(addProduct(product));
+    // };
+
     return (
         <>
             <div>Your order</div>
@@ -98,28 +116,28 @@ const CartPage = () => {
                 <tbody>
                     <tr>
                         <th>Item</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
+                        {/* <th>Price</th>
+                        <th>Subtotal</th> */}
                     </tr>
                 </tbody>
                 <tbody>
-{/* 
-                    <tr>Title</tr>
-                    <tr>price</tr>
-                    <tr>total</tr> */}
+
+                    <tr>total 円{total}</tr>
                 </tbody>
             </table>
             <div>
-            {cartItems.length === 0 ? (
-                <p>Your cart is empty
-                    <Link to="/">Go Back</Link></p>
-            ) : cartItems.map(product =>
-                <CartItem product={product.info}
-                    key={product}
-                    qtyChangeHandler={qtyChangeHandler}
-                    removeHandler={removeHandler}
-                />)
-            }
+                {cartItems.length === 0 ? (
+                    <p>Your cart is empty
+                        <Link to="/">Go Back</Link></p>
+                ) : cartItems.map(product =>
+                    <CartItem
+                        product={product.info}
+                        key={product}
+                        qtyChangeHandler={qtyChangeHandler}
+                        removeHandler={removeHandler}
+                    />
+                )
+                }
             </div>
             <p>Item</p>
 
