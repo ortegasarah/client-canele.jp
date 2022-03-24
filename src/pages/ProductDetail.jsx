@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCocktail } from '@fortawesome/free-solid-svg-icons'
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 /* STYLES */
-import { Section, StickyImSgSection, TextDetail, ProductButtonSection } from './ProductDetailStyles'
+import { Section, StickyImSgSection, TextDetail, ProductButtonSection, QuantityButton } from './ProductDetailStyles'
 import { ButtonCart, ButtonOrange, H1 } from '../globalStyles'
 import { H2 } from '../components/Landing/LandingStyles';
 
@@ -19,6 +23,13 @@ const ProductDetail = () => {
     const productDetails = useSelector(state => state.getProductDetails);
     const { loading, error, product } = productDetails;
 
+    const handleQuantity = (type) => {
+        if (type === "dec") {
+            quantity > 1 && setQuantity(quantity - 1)
+        } else {
+            setQuantity(quantity + 1)
+        }
+    }
     useEffect(() => {
         if (product && id !== product._id) {
             dispatch(getProductDetails(id))
@@ -28,8 +39,8 @@ const ProductDetail = () => {
 
     /* CART */
     const addToCartHandler = () => {
-        dispatch(addToCart(product._id, quantity));
-        id.push(`/cart`);
+        dispatch(addToCart(product, quantity));
+        console.log("added to acrt")
     };
 
     return (
@@ -48,18 +59,13 @@ const ProductDetail = () => {
                             <H1>{product.name}</H1>
                             <p>{product.description}</p>
 
-                            <p>
-                                Qty
-                                <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-                                    {[...Array(product.stock).keys()].map((x) => (
-                                        <option key={x + 1} value={x + 1}>
-                                            {x + 1}
-                                        </option>
-                                    ))}
-                                </select>
-                            </p>
+                            <QuantityButton>
+                                <FaMinus onClick={() => handleQuantity("dec")} />
+                                <p>{quantity}</p>
+                                <FaPlus onClick={() => handleQuantity("inc")} />
+                            </QuantityButton >
 
-                            <ButtonCart type="button" onclick={addToCartHandler}>
+                            <ButtonCart type="button" onClick={addToCartHandler}>
                                 <span>円{product.price}</span>
                                 <span>Add to cart</span>
                             </ButtonCart>

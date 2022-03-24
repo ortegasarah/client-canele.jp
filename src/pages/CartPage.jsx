@@ -1,10 +1,11 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { denormalizeData } from '../utils/formatter'
 /* STYLES */
 import CartItem from '../components/CartItem/CartItem'
+import { ButtonOrange } from '../globalStyles';
 
 /* ACTIONS */
 import { addToCart, removeFromCart } from '../Redux/actions/cartActions';
@@ -39,47 +40,50 @@ const CartPage = () => {
         }, [currency, showSpinner]);
 
 
-        return (<>
-            {(showSpinner && isPending) && <div className="spinner" />}
-            <PayPalButtons
-                style={style}
-                disabled={false}
-                forceReRender={[amount, currency, style]}
-                fundingSource={undefined}
-                createOrder={(data, actions) => {
-                    return actions.order
-                        .create({
-                            purchase_units: [
-                                {
-                                    amount: {
-                                        currency_code: currency,
-                                        value: amount,
+        return (
+            <>
+                {(showSpinner && isPending) && <div className="spinner" />}
+                <PayPalButtons
+                    style={style}
+                    disabled={false}
+                    forceReRender={[amount, currency, style]}
+                    fundingSource={undefined}
+                    createOrder={(data, actions) => {
+                        return actions.order
+                            .create({
+                                purchase_units: [
+                                    {
+                                        amount: {
+                                            currency_code: currency,
+                                            value: amount,
+                                        },
                                     },
-                                },
-                            ],
-                        })
-                        .then((orderId) => {
-                            // Your code here after create the order
-                            return orderId;
+                                ],
+                            })
+                            .then((orderId) => {
+                                // Your code here after create the order
+                                return orderId;
+                            });
+                    }}
+                    onApprove={function (data, actions) {
+                        return actions.order.capture().then(function (details) {
+                            console.log("details are", details)
                         });
-                }}
-                onApprove={function (data, actions) {
-                    return actions.order.capture().then(function () {
-                        // Your code here after capture the order
-                    });
-                }}
-            />
-        </>
+                    }}
+                />
+            </>
         );
     }
 
 
 
+    const [open, setOpen] = useState(false)
 
 
     const dispatch = useDispatch()
-    const cart = useSelector(state => state.cart);
-    const { cartItems } = cart;
+    const items = useSelector(state => state.cart.items);
+    const cartItems = denormalizeData(items);
+    const total = denormalizeData(items).reduce((acc, item) => (acc += item.info.price * item.quantity), 0)
 
     const qtyChangeHandler = (id, quantity) => {
         dispatch(addToCart(id, quantity))
@@ -91,44 +95,53 @@ const CartPage = () => {
         <>
             <div>Your order</div>
             <table>
-                <thread>
+                <tbody>
                     <tr>
                         <th>Item</th>
                         <th>Price</th>
                         <th>Subtotal</th>
                     </tr>
-                </thread>
+                </tbody>
                 <tbody>
-                    {cartItems.length === 0 ? (
-                        <div>Your cart is empty
-                            <Link to="/">Go Back</Link></div>
-                    ) : cartItems.map(product =>
-                        <CartItem product={product}
-                            key={product}
-                            qtyChangeHandler={qtyChangeHandler}
-                            removeHandler={removeHandler}
-                        />)
-                    }
-                    <button onClick={() => removeHandler(product)}>delete</button>
+{/* 
                     <tr>Title</tr>
                     <tr>price</tr>
-                    <tr>total</tr>
+                    <tr>total</tr> */}
                 </tbody>
             </table>
+            <div>
+            {cartItems.length === 0 ? (
+                <p>Your cart is empty
+                    <Link to="/">Go Back</Link></p>
+            ) : cartItems.map(product =>
+                <CartItem product={product.info}
+                    key={product}
+                    qtyChangeHandler={qtyChangeHandler}
+                    removeHandler={removeHandler}
+                />)
+            }
+            </div>
             <p>Item</p>
 
-            <PayPalScriptProvider
-                options={{
-                    "client-id": "test",
-                    components: "buttons",
-                    currency: "JPY"
-                }}
-            >
-                <ButtonWrapper
-                    currency={currency}
-                    showSpinner={false}
-                />
-            </PayPalScriptProvider>
+
+
+            {open ? (
+                <PayPalScriptProvider
+                    options={{
+                        "client-id": "AZXXZVtCF6o7WU-uCAOSXYKvOcCQ0unl4YkkrIjlErC14HtTrP9sZr8AzHih7PBN98KJy079RNE2k-fM",
+                        components: "buttons",
+                        currency: "JPY"
+                    }}
+                >
+                    <ButtonWrapper
+                        currency={currency}
+                        showSpinner={false}
+                    />
+                </PayPalScriptProvider>
+            ) : (
+                <ButtonOrange onClick={() => setOpen(true)}> Checkout</ButtonOrange>
+            )}
+
         </>
 
     )

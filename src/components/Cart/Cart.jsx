@@ -5,6 +5,8 @@ import { CartSection, CartContainer } from "./CartStyles"
 import { useSelector, useDispatch} from 'react-redux'
 // import { removeFromCart } from '../Redux/actions/cartActions'
 import { cartReducers} from '../../Redux/reducers/cartRerducers'
+import { Link } from "react-router-dom"
+import * as PATHS from "../../utils/paths";
 
 
 
@@ -22,7 +24,7 @@ const Cart = () => {
                 <p>Subtotal (0) Items</p>
                 <p>Total Price</p>
                 <ButtonWhite>Checkout</ButtonWhite>
-                <p>View your cart</p>
+                <Link to={PATHS.CART}>View your cart</Link>
             </CartSection>
         </>
     )

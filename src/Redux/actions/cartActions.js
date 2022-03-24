@@ -6,25 +6,19 @@ import {
 } from '../../services/cart-ws'
 
 
-export const addToCart = (id, quantity) => async (dispatch, getState) => {
-    const {
-        data
-    } = await createCartWs({
-        product: id,
-        quantity,
-    })
+export const addToCart = (product, quantity) => async (dispatch, getState) => {
+    // const {
+    //     data
+    // } = await createCartWs({
+    //     product: id,
+    //     quantity,
+    // })
 
     dispatch({
         type: actionTypes.ADD_TO_CART,
         payload: {
-            product: data._id,
-            name: data.name,
-            image_url: data.image_url,
-            price: data.price,
-            flavors: data.flavors,
-            stock: data.stock,
+            product,
             quantity
-
         }
     })
     localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems));

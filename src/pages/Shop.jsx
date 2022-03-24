@@ -9,6 +9,7 @@ import { getProduct } from '../Redux/actions/productActions'
 import { Route, useParams } from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 import { Link } from "react-router-dom";
+import { addToCart } from "../Redux/actions/cartActions";
 
 const Wrapper = styled.section`
     margin: 0 auto;
@@ -35,7 +36,13 @@ const Shop = () => {
     useEffect(() => {
         dispatch(getProduct());
     }, [dispatch]);
-    
+
+    /* CART */
+    const addToCartHandler = (product, quantity) => {
+        dispatch(addToCart(product, quantity));
+        console.log("added to acrt")
+    };
+
     return (
         <div>
             <H1>カヌレ Canelés</H1>
@@ -46,6 +53,7 @@ const Shop = () => {
                     <ProductCard
                         key={products._id}
                         {...products}
+                        addToCartHandler={addToCartHandler}
                     />))}
             </ Wrapper >
         </div>
