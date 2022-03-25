@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { signup } from "../services/auth";
 import { useNavigate } from "react-router-dom";
-import "./auth.css";
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
 import * as Yup from "yup";
@@ -36,10 +35,14 @@ export default function Signup({ authenticate, handleSuccess }) {
       .required("Required fields")
       .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
       .min(8),
+    confirmPassword: Yup.string()
+      .required("Required fields")
+      .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
+      .min(8),
   });
 
   const [showPassword, setShowPassword] = useState(false)
-  const handleShowPassword = () => setShowPassword((prevShowPassword)=> !prevShowPassword )
+  const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
 
 
   const [form, setForm] = useState({
@@ -47,8 +50,9 @@ export default function Signup({ authenticate, handleSuccess }) {
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: ""
   });
-  const { firstName, lastName, email, password } = form;
+  const { firstName, lastName, email, password, confirmPassword } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -64,6 +68,7 @@ export default function Signup({ authenticate, handleSuccess }) {
       email,
       firstName,
       password,
+      confirmPassword
     };
     signup(credentials).then((res) => {
       if (!res.status) {
@@ -91,7 +96,8 @@ export default function Signup({ authenticate, handleSuccess }) {
             firstName: "",
             lastName: "",
             email: "",
-            password: ""
+            password: "",
+            confirmPassword: ""
           }}
           onSubmit={handleSuccess}
           validationSchema={schema}
@@ -142,6 +148,21 @@ export default function Signup({ authenticate, handleSuccess }) {
                 name="password"
                 placeholder="Password"
                 value={password}
+                onChange={handleInputChange}
+                // label="Password"
+                autoComplete="off"
+                required
+                minLength="8"
+
+              />
+
+              <InputComponent
+                id="input-confirmPassword"
+                type={showPassword ? "text" : "password"}
+                handleShowPassword={handleShowPassword}
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={confirmPassword}
                 onChange={handleInputChange}
                 // label="Password"
                 autoComplete="off"

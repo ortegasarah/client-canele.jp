@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
 import { FaBars } from "react-icons/fa"
-import { useEffect, useState,  } from "react";
-import {useLocation} from 'react-router-dom'
+import { useEffect, useState, } from "react";
+import { useLocation } from 'react-router-dom'
+import { denormalizeData, normalizeData } from '../../utils/formatter';
+import { useSelector } from "react-redux";
+
 /* STYLES */
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg } from "./NavbarStyles";
 import GlobalStyle, { ButtonOrange, ButtonWhite } from '../../globalStyles';
@@ -32,8 +35,10 @@ const Navbar = ({ toggle, ...props }) => {
   const toggleCart = () => {
     setShowCart((showCart) => !showCart);
   };
+  const items = useSelector(state => state.cart.items)
 
-  // const location = useLocation()
+  //Create array of object
+  const count = denormalizeData(items).reduce((acc, item) => (acc += item.quantity), 0)
 
   return (
     <Nav>
@@ -42,7 +47,7 @@ const Navbar = ({ toggle, ...props }) => {
           <FaBars />
         </MobileIcon>
 
-       
+
         <NavMenu>
 
           <NavItem>
@@ -55,8 +60,8 @@ const Navbar = ({ toggle, ...props }) => {
             <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
           </NavItem>
         </NavMenu>
-        <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px"  /> </Link>
-       
+        <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px" /> </Link>
+
 
         <NavBtn>
           {props.user ? (
@@ -93,7 +98,7 @@ const Navbar = ({ toggle, ...props }) => {
               <Cart />
             </Modal>
           )}
-          <h1  onClick={toggleCart}> Cart(1)</h1>
+          <h1 onClick={toggleCart}> Cart({count})</h1>
 
           <Link to={PATHS.SHOP}><ButtonOrange> Order</ButtonOrange>  </Link>
         </NavBtn>

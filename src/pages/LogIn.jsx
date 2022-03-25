@@ -70,7 +70,7 @@ const LogIn = ({ handleSuccess, authenticate }) => {
       <SectionImg>
       </SectionImg>
       <SectionForm>
-        <H1>Log In test right</H1>
+        <H1>Log In right</H1>
         <Formik
           initialValues={{
             name: "",

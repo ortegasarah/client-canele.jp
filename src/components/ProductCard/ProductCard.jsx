@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Redux/actions/cartActions'
 
-const ProductCard = ({ name, image_url, price, _id }) => {
+const ProductCard = ({ name, image_url, price, _id, addToCartHandler, ...props }) => {
 
 
     return (
@@ -22,8 +22,7 @@ const ProductCard = ({ name, image_url, price, _id }) => {
                     <p>円{price}</p>
                 </Link>
 
-                {/* onclick={() => addToCartHandler(product._id, qty)} */}
-                <ButtonOrange>Add to Cart</ButtonOrange>
+                <ButtonOrange onClick={() => addToCartHandler({ _id, name, image_url, price, ...props})}>Add to Cart</ButtonOrange>
             </Detail>
 
         </DivCard >

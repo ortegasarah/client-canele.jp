@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
-import {
-  TabHeaderContainer, StylizedTab, StyledTabPanel, TabsHolder, inactiveTab, TabSlider } from "./TabsStyles"
+import { TabHeaderContainer, StylizedTab, StyledTabPanel, TabsHolder, inactiveTab, TabSlider } from "./TabsStyles"
 
 export const Tab = ({ label, active, onClick }) => {
   return (

@@ -5,9 +5,9 @@ export const Section = styled.section `
     flex-direction: row;
     padding: 0 4em;
 
-    div {
+    /* div {
         width: 100%;
-    }
+    } */
 
     &:nth-child(odd){
         flex-direction: row-reverse;
@@ -18,7 +18,7 @@ export const Section = styled.section `
     }
 `
 export const StickyImSgSection = styled.div`
-    /* flex-basis: calc(50% + 20em); */
+        width: 100%;
     img {
         width: 100%;
         object-fit: cover;
@@ -32,6 +32,8 @@ export const TextDetail = styled.div `
     padding: 0  0 4em 4em;
     height: 100vh;
     top: 10rem;
+    width: 100%;
+
 `
 
 export const ProductButtonSection = styled.div `
@@ -44,3 +46,22 @@ export const ProductButtonSection = styled.div `
     margin: 4px; */
 `
 
+export const QuantityButton = styled.div`
+    border-radius: 100vw;
+    color: var(--orange);
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0.5em 2em;
+    border: 2px solid var(--orange);
+    width: fit-content;
+    background-color: transparent;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+`

@@ -147,4 +147,19 @@ export const AbsoluteCenter = css`
     position: absolute;
     transform: translate(-50%, -50%);
 `;
+
+
+export const DeleteButton = styled.span`
+   color: var(--orange);
+   text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 2em;
+    margin: 10px auto;
+    height: 50px;
+    cursor: pointer;
+    inline-size: fit-content;
+    height: 3em;
+   `
 export default GlobalStyle
+
