@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { getLoggedIn, logout } from "./services/auth";
+import { getUserLogged, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 
@@ -46,27 +46,19 @@ export default function App() {
 
 
   useEffect(() => {
-    const accessToken = USER_HELPERS.getUserToken();
-    if (!accessToken) {
-      return setIsLoading(false);
-    }
-    getLoggedIn(accessToken).then((res) => {
+    getUserLogged().then((res) => {
+      console.log("res", res)
       if (!res.status) {
         return setIsLoading(false);
       }
-      setUser(res.data.user);
+      setUser(res.data.result);
       setIsLoading(false);
     });
   }, []);
 
   function handleLogout() {
-    const accessToken = USER_HELPERS.getUserToken();
-    if (!accessToken) {
-      setUser(null);
-      return setIsLoading(false);
-    }
     setIsLoading(true);
-    logout(accessToken).then((res) => {
+    logout().then((res) => {
       if (!res.status) {
         // deal with error here
         console.error("Logout was unsuccessful: ", res);

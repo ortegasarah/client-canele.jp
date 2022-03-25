@@ -9,7 +9,7 @@ import Shop from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
 import CartPage from "../pages/CartPage";
-import Order from "../pages/Order";
+// import Order from "../pages/Order";
 
 const routes = (props) => {
   const { user } = props;
@@ -35,11 +35,11 @@ const routes = (props) => {
       path: PATHS.LOGINPAGE,
       element: <Login {...props} />,
     },
-    {
-      path: PATHS.ORDER,
-      element: user ? <Order {...props} /> : <Navigate to={PATHS.LOGINPAGE} replace />
+    // {
+    //   path: PATHS.ORDER,
+    //   element: user ? <Order {...props} /> : <Navigate to={PATHS.LOGINPAGE} replace />
 
-    },
+    // },
     {
       path: PATHS.SHOP,
       element: <Shop {...props} />,

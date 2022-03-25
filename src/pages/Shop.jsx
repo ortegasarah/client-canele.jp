@@ -26,12 +26,10 @@ const Shop = () => {
     const dispatch = useDispatch();
 
     const getProducts = useSelector((state) => {
-        console.log(state)
         return state.getProduct
     });
     const { products, loading, error } = getProducts;
 
-    console.log("products from getProducts", getProducts)
 
     useEffect(() => {
         dispatch(getProduct());
@@ -40,7 +38,6 @@ const Shop = () => {
     /* CART */
     const addToCartHandler = (product, quantity) => {
         dispatch(addToCart(product, quantity));
-        console.log("added to acrt")
     };
 
     return (

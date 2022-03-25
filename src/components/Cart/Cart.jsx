@@ -21,8 +21,6 @@ const Cart = () => {
         dispatch(removeFromCart(id))
         let newArray = cartItems.filter(product => product.info._id !== id)
         setCartItems(newArray)
-        console.log("index", idx, cartItems)
-
     }
     useEffect(() => {
         setCartItems(denormalizeData(items));
@@ -37,20 +35,30 @@ const Cart = () => {
                     {cartItems.length === 0 ? (
                         <>
                             <p>Your cart is empty</p>
-                            <p><Link to="/">Go Back</Link></p>
+                            <p><Link to="/shop">START YOUR ORDER</Link></p>
                         </>
-                    ) : cartItems.map((products, idx) =>
-                        <CartItem
-                            key={products.info._id}
-                            removeProduct={() => removeProduct(products.info._id, idx)}
-                            {...products.info}
+                    ) :
+                        (
 
-                        />)}
+                            cartItems.map((products, idx) => (
+                                <CartItem
+                                    key={products.info._id}
+                                    removeProduct={() => removeProduct(products.info._id, idx)}
+                                    {...products.info}
+
+                                />
+                            ))
+
+
+
+                        )
+                    }
+                    <p>Total 円{total}</p>
+                    <Link to={PATHS.CART} >
+                        <ButtonWhite>Checkout</ButtonWhite>
+                    </Link>
                 </CartContainer>
-                <p>Total 円{total}</p>
-                <Link to={PATHS.CART} replace state={{ from: location }} >
-                    <ButtonWhite>Checkout</ButtonWhite>
-                </Link>
+
                 {/* <Link to={PATHS.CART}>View your cart</Link> */}
             </CartSection>
         </>

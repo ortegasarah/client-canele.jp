@@ -7,8 +7,10 @@ import { denormalizeData } from '../utils/formatter'
 import CartItem from '../components/CartItem/CartItem'
 import { ButtonOrange } from '../globalStyles';
 
+import {  } from "../";
 /* ACTIONS */
 import { addToCart, removeFromCart } from '../Redux/actions/cartActions';
+import { createOrder } from '../Redux/actions/orderActions';
 
 /* PAYPAL */
 import {
@@ -35,15 +37,18 @@ const CartPage = () => {
         dispatch(removeFromCart(id))
     }
 
+
+    /* CREATE ORDER */
     const handleCreateOrder = () => {
         const items = cartItems.map((item) => ({
             quantity: item.quantity,
             product: item.info._id,
         }));
         const order = { items, total };
-        console.log(items);
-        // dispatch(createOrder(order));
+        console.log(order);
+        dispatch(createOrder(order));
     }
+
 
     /* PAYPAL */
     // This values are the props in the UI
@@ -94,7 +99,10 @@ const CartPage = () => {
                     }}
                     onApprove={function (data, actions) {
                         return actions.order.capture().then(function (details) {
+                            handleCreateOrder()
                             console.log("details are", details)
+
+
                         });
                     }}
                 />
@@ -104,7 +112,7 @@ const CartPage = () => {
 
 
 
-    ;
+        ;
     // const handleClick = (product) => {
     //     dispatch(addProduct(product));
     // };
