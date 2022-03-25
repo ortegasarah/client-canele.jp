@@ -2,8 +2,13 @@ import { Navigate } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
+import UserProfile from "../pages/UserProfile";
 import ProtectedPage from "../pages/ProtectedPage";
+import Auth from "../pages/NoLogIn"
+import Shop from "../pages/Shop";
+import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
+import CartPage from "../pages/CartPage";
 
 const routes = (props) => {
   const { user } = props;
@@ -13,6 +18,14 @@ const routes = (props) => {
       element: <HomePage {...props} />,
     },
     {
+      path: PATHS.USERPROFILE,
+      element: user ? (
+        <UserProfile {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
+      ),
+    },
+    {
       path: PATHS.SIGNUPPAGE,
       element: <Signup {...props} />,
     },
@@ -20,6 +33,21 @@ const routes = (props) => {
     {
       path: PATHS.LOGINPAGE,
       element: <Login {...props} />,
+    },
+    // {
+    //   path: PATHS.AUTH,
+    //   element: <Auth {...props} />,
+    // },
+    {
+      path: PATHS.SHOP,
+      element: <Shop {...props} />,
+    },
+    {
+      path: PATHS.PRODUCTDETAIL,
+      element: <ProductDetail {...props} />,
+    },    {
+      path: PATHS.CART,
+      element: <CartPage {...props} />,
     },
     {
       path: PATHS.PROTECTEDPAGE,

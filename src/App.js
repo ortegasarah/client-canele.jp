@@ -1,14 +1,49 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import LoadingComponent from "./components/Loading";
-import Navbar from "./components/Navbar/Navbar";
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 
+/* STYLES */
+import GlobalStyle from './globalStyles';
+
+/* COMPONENTS */
+import Sidebar from "./components/Sidebar/Sidebar";
+import ScrollToTop from "./components/ScrollToTop.";
+import LoadingComponent from "./components/Loading";
+import Navbar from "./components/Navbar/Navbar";
+import Modal from "./components/Modal/Modal";
+import ModalInner from "./components/ModalInner/ModalInner";
+import Footer from "./components/Footer/Footer";
+
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+   /* TOGGLE SIGN UP MODAL */
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal((showModal) => !showModal);
+  };
+
+ /* TO TOGGLE MENU BURGER */
+  const [ isOpen, setIsOpen ] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+  /* CONDITIONNALY RENDER BURGER MENU BASED ON VIEWPORT SIZE */
+  const [isMobile, setMobile] = useState(window.innerWidth < 760);
+  const updateMedia = () => {
+    setMobile(window.innerWidth < 760);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
+
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -49,14 +84,34 @@ export default function App() {
   if (isLoading) {
     return <LoadingComponent />;
   }
+
+
+
   return (
     <div className="App">
-      <Navbar handleLogout={handleLogout} user={user} />
+      <>      
+      <GlobalStyle />
+      <ScrollToTop />
+      {showModal && (
+        <Modal toggleModal={toggleModal}>
+          <ModalInner />
+        </Modal>
+      )}
+      {isMobile ? 
+      <Sidebar isOpen={isOpen} toggle={toggle} handleLogout={handleLogout} user={user}/>
+      :
+      <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
+      }
+      
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
+      <Footer />
+
+      </>
+
     </div>
   );
 }

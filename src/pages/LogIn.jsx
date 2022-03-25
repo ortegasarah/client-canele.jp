@@ -1,29 +1,57 @@
 import React, { useState } from "react";
-import { login } from "../services/auth";
-import { useNavigate } from "react-router-dom";
-import "./Signup";
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
+import * as Yup from "yup";
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from "../services/auth";
+import "./Signup";
+import { Formik, Form, useField } from "formik";
 
-export default function LogIn({ authenticate }) {
+/* STYLES */
+import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
+import { ButtonOrange, H1 } from '../globalStyles';
+import { Wrapper, SectionForm, SectionImg } from "./LoginStyles"
+
+const InputComponent = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <Label>
+      {meta.touched && meta.error && <Error>{meta.error}</Error>}
+      <Input {...field} {...props} />
+    </Label>
+  );
+};
+
+
+const LogIn = ({ handleSuccess, authenticate }) => {
   const [form, setForm] = useState({
-    username: "",
+    email: "",
     password: "",
   });
-  const { username, password } = form;
+  const { email, password } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+
+
+  const schema = Yup.object().shape({
+    name: Yup.string().required("Required fiels"),
+    email: Yup.string()
+      .email("Must be a valid email address")
+      .required("Required fiels")
+  });
+
+
   function handleInputChange(event) {
     const { name, value } = event.target;
-
-    return setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value });
   }
 
   function handleFormSubmission(event) {
     event.preventDefault();
     const credentials = {
-      username,
+      email,
       password,
     };
     login(credentials).then((res) => {
@@ -36,44 +64,65 @@ export default function LogIn({ authenticate }) {
     });
   }
 
+
   return (
-    <div>
-      <h1>Log In</h1>
-      <form onSubmit={handleFormSubmission} className="signup__form">
-        <label htmlFor="input-username">Username</label>
-        <input
-          id="input-username"
-          type="text"
-          name="username"
-          placeholder="username"
-          value={username}
-          onChange={handleInputChange}
-          required
-        />
+    <Wrapper>
+      <SectionImg>
+      </SectionImg>
+      <SectionForm>
+        <H1>Log In test right</H1>
+        <Formik
+          initialValues={{
+            name: "",
+            email: ""
+          }}
+          onSubmit={handleSuccess}
+          validationSchema={schema}
+        >
+          {() => (
+            <Form onSubmit={handleFormSubmission} className="signup__form">
+              <InputComponent
+                id="input-email"
+                type="text"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={handleInputChange}
+                autoComplete="off"
+                required
+              />
 
-        <label htmlFor="input-password">Password</label>
-        <input
-          id="input-password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleInputChange}
-          required
-          minLength="8"
-        />
 
-        {error && (
-          <div className="error-block">
-            <p>There was an error submiting the form:</p>
-            <p>{error.message}</p>
-          </div>
-        )}
+              <InputComponent
+                id="input-password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handleInputChange}
+                autoComplete="off"
+                required
+                minLength="8"
+              />
 
-        <button className="button__submit" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+              {error && (
+                <div className="error-block">
+                  <p>There was an error submiting the form:</p>
+                  <p>{error.message}</p>
+                </div>
+              )}
+
+              <ButtonOrange type="submit"> Submit </ButtonOrange>
+
+            </Form>
+          )}
+        </Formik>
+        <p> Forgot password?</p>
+
+        <Link to={PATHS.SIGNUPPAGE}><p> Don't have an account? Sign up</p></Link>
+      </SectionForm>
+    </Wrapper>
   );
 }
+
+export default LogIn;

@@ -4,25 +4,65 @@ import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
+import * as Yup from "yup";
+import { Formik, Form, useField } from "formik";
+import { Input, Label, Error, Submit } from "../components/Form/FormStyles"
+import { ButtonOrange, H1 } from '../globalStyles';
+import { Wrapper, SectionForm, SectionImg } from "./LoginStyles"
+import Img from '../assets/signup.jpg'
+import { Link } from 'react-router-dom'
 
-export default function Signup({ authenticate }) {
+const InputComponent = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <Label>
+      {label}  {meta.touched && meta.error && <Error>{meta.error}</Error>}
+      <Input {...field} {...props} />
+    </Label>
+  );
+};
+
+export default function Signup({ authenticate, handleSuccess }) {
+
+  const schema = Yup.object().shape({
+    firstName: Yup.string().required("Required fields"),
+    lastName: Yup.string().required("Required fields"),
+    email: Yup.string()
+      .email("Must be a valid email address")
+      .required("Required fiels"),
+
+    password: Yup.string()
+      .required("Required fields")
+      .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
+      .min(8),
+  });
+
+  const [showPassword, setShowPassword] = useState(false)
+  const handleShowPassword = () => setShowPassword((prevShowPassword)=> !prevShowPassword )
+
+
   const [form, setForm] = useState({
-    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
     password: "",
   });
-  const { username, password } = form;
+  const { firstName, lastName, email, password } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    return setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value });
   }
 
   function handleFormSubmission(event) {
     event.preventDefault();
     const credentials = {
-      username,
+      lastName,
+      email,
+      firstName,
       password,
     };
     signup(credentials).then((res) => {
@@ -30,7 +70,7 @@ export default function Signup({ authenticate }) {
         // unsuccessful signup
         console.error("Signup was unsuccessful: ", res);
         return setError({
-          message: "Signup was unsuccessful! Please check the console.",
+          message: "This email is already taken.",
         });
       }
       // successful signup
@@ -41,43 +81,93 @@ export default function Signup({ authenticate }) {
   }
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleFormSubmission} className="auth__form">
-        <label htmlFor="input-username">Username</label>
-        <input
-          id="input-username"
-          type="text"
-          name="username"
-          placeholder="Text"
-          value={username}
-          onChange={handleInputChange}
-          required
-        />
+    <Wrapper>
+      <SectionImg>
+      </SectionImg>
+      <SectionForm>
+        <H1>Create account</H1>
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: ""
+          }}
+          onSubmit={handleSuccess}
+          validationSchema={schema}
+        >
+          {() => (
+            <Form onSubmit={handleFormSubmission} className="signup__form">
 
-        <label htmlFor="input-password">Password</label>
-        <input
-          id="input-password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handleInputChange}
-          required
-          minLength="8"
-        />
+              <InputComponent
+                id="input-firstName"
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={firstName}
+                onChange={handleInputChange}
+                autoComplete="off"
+                // label="Email"
+                required
+              />
+              <InputComponent
+                id="input-lastname"
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={handleInputChange}
+                autoComplete="off"
+                // label="Last name"
+                required
+              />
+              <InputComponent
+                id="input-email"
+                type="text"
+                name="email"
+                placeholder="Email address"
+                value={email}
+                onChange={handleInputChange}
+                autoComplete="off"
+                // label="Email"
+                required
+              />
 
-        {error && (
-          <div className="error-block">
-            <p>There was an error submiting the form:</p>
-            <p>{error.message}</p>
-          </div>
-        )}
 
-        <button className="button__submit" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+
+              <InputComponent
+                id="input-password"
+                type={showPassword ? "text" : "password"}
+                handleShowPassword={handleShowPassword}
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={handleInputChange}
+                // label="Password"
+                autoComplete="off"
+                required
+                minLength="8"
+
+              />
+
+
+
+              {error && (
+                <div className="error-block">
+                  <p>There was an error submiting the form:</p>
+                  <p>{error.message}</p>
+                </div>
+              )}
+
+              <ButtonOrange type="submit"> Create </ButtonOrange>
+
+            </Form>
+          )}
+        </Formik>
+        <p> Forgot password?</p>
+
+        <Link to={PATHS.LOGINPAGE}><p> Already have an account? Login</p></Link>
+      </SectionForm>
+    </Wrapper>
   );
 }
