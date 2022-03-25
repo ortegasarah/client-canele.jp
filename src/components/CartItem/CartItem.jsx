@@ -11,12 +11,11 @@ import { MdDelete } from "react-icons/md"
 import { DeleteButton } from '../../globalStyles'
 
 const CartItem = ({ name, image_url, price, _id, removeProduct = () => { }, ...props }) => {
-    const [quantity, setQuantity] = useState(1)
 
     return (
         <>
             <CartSection>
-                {/* <img src={product.image_url[0]} alt={product.name} width={100} /> */}
+                {/* <img src={image_url[0]} alt={name} width={200} /> */}
                 <Link to={`/products/${_id}`}><h1>{name}</h1></Link>
                 <p>円{price}</p>
 

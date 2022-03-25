@@ -1,23 +1,21 @@
 import { api } from "./api"
 import { internalServerError, successStatus } from "../utils/clearRes";
 
-export const getCartWs = () => {
-    return api.get("/cart")
+export const getOrderWs = () => {
+    return api.get("/order")
     .then(successStatus)
     .catch(internalServerError)
 }
 
-export const createCartWs= ( data ) => {
+export const createOrdertWs= ( data ) => {
     return api
-    .post("/cart/create", data)
+    .post("/order/create", data)
     .then(successStatus)
     .catch(internalServerError)
 }
 
-export const deleteCartWs = ( id ) => {
-    return api
-    .delete("/cart/delete")
+export const idOrderWs = ( id ) => {
+    return api.get(`/order/${id}`)
     .then(successStatus)
     .catch(internalServerError)
 }
-

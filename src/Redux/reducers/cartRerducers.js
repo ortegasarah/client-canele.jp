@@ -20,7 +20,7 @@ export const cartReducers = (state = initialState, action) => {
                     quantity: item.quantity ? item.quantity : 1,
                 }
             }
-            return {
+            return { 
                 ...state,
                 items: {
                     ...state.items,

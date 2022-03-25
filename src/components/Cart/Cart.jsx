@@ -9,9 +9,10 @@ import { Link } from "react-router-dom"
 import * as PATHS from "../../utils/paths";
 import { denormalizeData } from '../../utils/formatter'
 import { useEffect, useState } from "react";
-
+import { useLocation } from "react-router-dom"
 
 const Cart = () => {
+    const location = useLocation()
     const [cartItems, setCartItems] = useState([])
     const items = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
@@ -46,10 +47,11 @@ const Cart = () => {
 
                         />)}
                 </CartContainer>
-                <p>Subtotal (0) Items</p>
                 <p>Total 円{total}</p>
-                <ButtonWhite>Checkout</ButtonWhite>
-                <Link to={PATHS.CART}>View your cart</Link>
+                <Link to={PATHS.CART} replace state={{ from: location }} >
+                    <ButtonWhite>Checkout</ButtonWhite>
+                </Link>
+                {/* <Link to={PATHS.CART}>View your cart</Link> */}
             </CartSection>
         </>
     )

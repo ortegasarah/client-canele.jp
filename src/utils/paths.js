@@ -7,3 +7,4 @@ export const USERPROFILE = "/profile";
 export const SHOP = "/shop";
 export const PRODUCTDETAIL = "/products/:id";
 export const CART = "/cart";
+export const ORDER = "/order";

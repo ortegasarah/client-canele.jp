@@ -20,7 +20,30 @@ import {
 
 const CartPage = () => {
 
+    const [open, setOpen] = useState(false)
 
+
+    const dispatch = useDispatch()
+    const items = useSelector((state) => state.cart.items);
+    const cartItems = denormalizeData(items);
+    const total = denormalizeData(items).reduce((acc, item) => (acc += item.info.price * item.quantity), 0)
+
+    const qtyChangeHandler = (id, quantity) => {
+        dispatch(addToCart(id, quantity))
+    }
+    const removeHandler = (id) => {
+        dispatch(removeFromCart(id))
+    }
+
+    const handleCreateOrder = () => {
+        const items = cartItems.map((item) => ({
+            quantity: item.quantity,
+            product: item.info._id,
+        }));
+        const order = { items, total };
+        console.log(items);
+        // dispatch(createOrder(order));
+    }
 
     /* PAYPAL */
     // This values are the props in the UI
@@ -81,30 +104,7 @@ const CartPage = () => {
 
 
 
-    const [open, setOpen] = useState(false)
-
-
-    const dispatch = useDispatch()
-    const items = useSelector((state) => state.cart.items);
-    const cartItems = denormalizeData(items);
-    const total = denormalizeData(items).reduce((acc, item) => (acc += item.info.price * item.quantity), 0)
-
-    const qtyChangeHandler = (id, quantity) => {
-        dispatch(addToCart(id, quantity))
-    }
-    const removeHandler = (id) => {
-        dispatch(removeFromCart(id))
-    }
-
-    const handleCreateOrder = () => {
-        const items = cartItems.map((item) => ({
-            quantity: item.quantity,
-            product: item.info._id,
-        }));
-        const order = { items, total };
-        console.log(items);
-        // dispatch(createOrder(order));
-    };
+    ;
     // const handleClick = (product) => {
     //     dispatch(addProduct(product));
     // };

@@ -1,9 +1,5 @@
 import * as actionTypes from '../constants/productConst'
-import {
-    createProductWs,
-    getProductWs,
-    idProductWs
-} from '../../services/product-ws'
+import { createProductWs, getProductWs, idProductWs } from '../../services/product-ws'
 
 export const getProduct = () => async (dispatch) => {
     try {
@@ -68,34 +64,3 @@ export const getProductDetails = (id) => async (dispatch) => {
         })
     }
 }
-
-// export const removeProductDetails = () => async (dispatch) => {
-//     try {
-//         dispatch({
-//             type: actionTypes.GET_PRODUCT_DETAILS_RESET
-//         })
-//         const {
-//             data,
-//             status,
-//             errorMessage
-//         } = await getProductWs()
-//         if (status) {
-//             dispatch({
-//                 type: actionTypes.GET_PRODUCT_DETAILS_RESET,
-//                 payload: data.result
-//             })
-//         } else {
-//             dispatch({
-//                 type: actionTypes.GET_PRODUCTS_FAIL,
-//                 payload: errorMessage
-//             })
-//         }
-//     } catch (error) {
-//         dispatch({
-//             type: actionTypes.GET_PRODUCTS_FAIL,
-//             payload: error
-//         })
-//     }
-
-
-// }

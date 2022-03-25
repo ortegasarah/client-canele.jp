@@ -159,6 +159,7 @@ export const DeleteButton = styled.span`
     height: 50px;
     cursor: pointer;
     inline-size: fit-content;
+    height: 3em;
    `
 export default GlobalStyle
 

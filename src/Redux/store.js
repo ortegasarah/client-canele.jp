@@ -5,12 +5,13 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { cartReducers } from './reducers/cartRerducers';
 import { getProductReducer, getProductDetailsReducer } from './reducers/productReducers'
-// import cartItems from './reducers/cartRerducers'
+import { createOrderReducer, getOrderReducer} from './reducers/orderReducers'
 
 const reducer = combineReducers({ 
     cart: cartReducers,
     getProduct: getProductReducer,
     getProductDetails: getProductDetailsReducer,
+    createOrder: createOrderReducer,
 })
 
 // Array with all middleware
