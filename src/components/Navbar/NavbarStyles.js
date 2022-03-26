@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
-import { Link as LinkB } from "react-router-dom";
-import { Link as LinkL } from "react-router-dom";
 import img from '../../assets/kisetsu.jpeg'
 import { ReactComponent as LogoSVG} from '../../assets/logo-name.svg'
 
 export const Nav = styled.nav`
-  /* display:flex; */
+  /* padding: 2em 0; */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -14,12 +12,10 @@ export const Nav = styled.nav`
   font-weight: 600;
   font-size: 1rem;
   width: 100%;
-  /* margin: -80 auto 0 auto; */
+  margin: 0 auto; 
   position: sticky;
   top: 0;
   z-index: 999;
-  height: 100px;
-
   background-color: var(--beige);
   @media screen and (max-width: 960px) {
     transition: 0,8s all ease;
@@ -42,21 +38,19 @@ export const Logo = styled(LogoSVG)`
 `
 
 export const NavbarContainer = styled.div `
-  /* display: flex; */
-  /* justify-content: space-between; */
+  display: flex;
+  justify-content: space-between;
   /* height: 80px; */
   z-index: 1;
   /* width: 100px; */
   padding: 0 24px;
   max-width: 1100;
   align-items: center;
-
 `
 export const NavLogo = styled(LinkR)`
   display: flex;
   color: #fff;
   justify-self: flex-start;
-
   img {
     width: 300px;
   }
@@ -64,13 +58,11 @@ export const NavLogo = styled(LinkR)`
   @media screen and (max-width: 760px){
    
 }
-
 `
 
 export const MobileIcon = styled.div`
 display: none;
-
-@media screen and (max-width: 760px){
+@media screen and (max-width: 768px){
   display: block;
   position: absolute;
   top: 0;
@@ -79,65 +71,41 @@ display: none;
   font-size: 1.8rem;
   cursor: pointer;
   color: #000;
-
 }
 `
 export const NavMenu = styled.ul `
-  /* display: flex; */
-  align-items: center;
-  list-style: none;
-  text-align: right;
-  /* margin-right: -22px; */
-  padding-top: 40px;
-
-
+display: flex;
+align-items: center;
+list-style: none;
+text-align: center;
+margin-right: -22px;
 @media screen and (max-width: 760px){
   display: none;
 }
 `
 
 export const NavItem = styled.li`
-  height: 80px;
-  color: #000;
-  float: none;
-  display: inline-block;
-  /* display: flex; */
-  align-items: center;
-  text-decoration: none;
-  padding: rem;
-  height: 100%;
-  cursor: pointer;
-
-  :nth-child(1) {
-    float: left;
-  }
-
-  :nth-child(2) {
-    float: left;
-  }
-  :nth-child(3) {
-    float: right;
-  }
-  :nth-child(4) {
-    float: right;
-  }
-  :nth-child(5) {
-    float: right;
-  }
+height: 80px;
+color: #000;
+display: flex;
+align-items: center;
+text-decoration: none;
+padding: 0 1rem;
+height: 100%;
+cursor: pointer;
 `
 
 export const NavLink = styled(LinkR)`
-  display:block;
+  display:inline-block;
   cursor:pointer;
-  list-style: none;
+  margin: 0;
   padding: 0 10px;
-
+  list-style: none;
   background: 
     linear-gradient(currentColor 0 0) 
     var(--p, 0) 100% /var(--d, 0) 2px 
   no-repeat;
   transition: 0.3s, background-position 0s 0.3s;
-
   &:hover {
     --d: 100%;
     --p: 100%;
@@ -168,42 +136,49 @@ display:inline-block;
 `
 
 export const NavBtn = styled.nav`
-  /* display: flex; */
+  display: flex;
   align-items:center;
   
   @media screen and (max-width: 768px){
     display: none;
   }`
-export const NavBtnLink = styled(LinkB)`
-border-radius: 100vw;
-    color: var(--orange);
-    font-size: 22px;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    cursor: pointer;
-    transition: 0.3s;
-    padding: 0.5em 2em;
-    border: 2px solid var(--orange);
-    width: fit-content;
-    background-color: transparent;
-    margin: 10px auto;
-    /* display: flex; */
-    &:hover {
-        background-color: var(--orange);
-        border: 2px solid var(--orange);
-        color: var(--beige);
-        }
-        
-    @media screen and (max-width: 1420px){
-    margin: 2rem auto;
-    }
 
-`
-export const BrandLogo = styled(LinkL)`
-  position: absolute;
-  left:50%;
-  transform: translateX()-50%;
-  top:0;
-`
+// .nav__projectName {
+//   color: #e4f9ff;
+//   text-decoration: none;
+// }
+
+// .authLink {
+//   color: #61dafb;
+//   text-decoration: none;
+//   transition: color 0.2s ease-in-out;
+// }
+
+// .authLink + .authLink {
+//   padding: 1em;
+// }
+
+// .authLink:hover {
+//   color: #ffffff;
+// }
+
+// .nav-logoutbtn {
+//   font-family: inherit;
+//   font-weight: inherit;
+//   padding: 0.5em 1em;
+//   margin-left: 1em;
+//   background-color: #5595ff;
+//   box-shadow: 0 0 5px 0 aliceblue;
+//   border: none;
+//   border-radius: 2px;
+//   cursor: pointer;
+//   color: #e3f2ff;
+//   transition: all 0.2s ease-in-out;
+//   position: sticky;
+//   top: 0;
+// }
+
+// .nav-logoutbtn:hover {
+//   transform: scale(1.05);
+//   background-color: #d13e3e;
+// }

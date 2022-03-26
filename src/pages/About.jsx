@@ -14,7 +14,6 @@ const Wrapper = styled.section`
 const TextSection = styled.section`
         padding: 2em;
         width: 80%;
-
 `
 const ImgSection = styled.div`
     img {
@@ -33,7 +32,6 @@ const ImgSection = styled.div`
         width: auto;
                padding:0;
        margin: 0 auto;
-
     }
 `
 export default function About() {

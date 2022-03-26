@@ -50,8 +50,8 @@ export const H1 = styled.h1`
     color: var(--orange);
     text-align: center;
 
-    @media screen and (max-width: 1310px) {
-        font-size: 5rem;  
+    @media screen and (max-width: 1150px) {
+        font-size: 4rem;  
     }
     @media screen and (max-width: 760px) {
         font-size:3rem;  

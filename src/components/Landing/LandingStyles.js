@@ -23,7 +23,9 @@ export const LandingImgBox = styled.div `
   background-position: center center;
   width: 40%;
   height: 700px;
-  
+  @media screen and (max-width: 1150px){
+    width: 100%;
+    }
   @media screen and (max-width: 700px){
     width: 100%;
   }
@@ -45,7 +47,9 @@ export const FirstSection = styled.div `
   flex-direction: column;
   width: 45%;
   margin: 0 auto;
-
+  @media screen and (max-width: 1150px){
+    width: 100%;
+    }
   @media screen and (max-width: 700px){
     width: 100%;
     margin: 0 auto;
@@ -65,6 +69,7 @@ export const Wrapper = styled.section `
     color: var(--orange);
 
   }
+
   @media screen and (max-width: 700px){
     flex-direction: column;
     margin: 20px auto;
@@ -96,7 +101,6 @@ export const TitleLanding = styled.h1 `
   padding: 1rem 0;
 
     @media screen and (max-width: 700px){
-      width: 100%;
       font-size: 5em;
       margin: 2rem auto;
       padding:  0;
@@ -110,7 +114,6 @@ export const H2 = styled.h2 `
       font-size: 40px;
       padding: 1em;
    @media screen and (max-width: 700px){
-      width: 100%;
       font-size: 2em;
       margin: 0 auto;
 

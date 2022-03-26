@@ -27,21 +27,21 @@ export default function App() {
     setShowModal((showModal) => !showModal);
   };
 
- /* TO TOGGLE MENU BURGER */
-  const [ isOpen, setIsOpen ] = useState(false);
-  const toggle = () => {
-    setIsOpen(!isOpen)
-  }
-  /* CONDITIONNALY RENDER BURGER MENU BASED ON VIEWPORT SIZE */
-  const [isMobile, setMobile] = useState(window.innerWidth < 760);
-  const updateMedia = () => {
-    setMobile(window.innerWidth < 760);
-  };
+//  /* TO TOGGLE MENU BURGER */
+//   const [ isOpen, setIsOpen ] = useState(false);
+//   const toggle = () => {
+//     setIsOpen(!isOpen)
+//   }
+//   /* CONDITIONNALY RENDER BURGER MENU BASED ON VIEWPORT SIZE */
+//   const [isMobile, setMobile] = useState(window.innerWidth < 760);
+//   const updateMedia = () => {
+//     setMobile(window.innerWidth < 760);
+//   };
 
-  useEffect(() => {
-    window.addEventListener("resize", updateMedia);
-    return () => window.removeEventListener("resize", updateMedia);
-  });
+//   useEffect(() => {
+//     window.addEventListener("resize", updateMedia);
+//     return () => window.removeEventListener("resize", updateMedia);
+//   });
 
 
 
@@ -84,7 +84,7 @@ export default function App() {
       <>      
       <GlobalStyle />
       <ScrollToTop />
-      {showModal && (
+      {/* {showModal && (
         <Modal toggleModal={toggleModal}>
           <ModalInner />
         </Modal>
@@ -94,7 +94,9 @@ export default function App() {
       :
       <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
       }
-      
+       */}
+        {/* <Navbar toggle={toggle} handleLogout={handleLogout} user={user} /> */}
+<Navbar />      
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
