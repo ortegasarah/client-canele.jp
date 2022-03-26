@@ -8,4 +8,5 @@ export const SHOP = "/shop";
 export const PRODUCTDETAIL = "/products/:id";
 export const CART = "/cart";
 export const ORDER = "/order";
-export const SUCCESS = "/ordercompleted"
+export const SUCCESS = "/ordercompleted";
+export const ABOUT = "/about"

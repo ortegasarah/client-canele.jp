@@ -113,7 +113,7 @@ export const H2 = styled.h2 `
       font-size: 40px;
    @media screen and (max-width: 700px){
       width: 100%;
-      font-size: 4em;
+      font-size: 2em;
       margin: 0 auto;
       padding: 0;
     }

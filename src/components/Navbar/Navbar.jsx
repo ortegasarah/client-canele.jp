@@ -9,7 +9,7 @@ import { denormalizeData, normalizeData } from '../../utils/formatter';
 import { useSelector } from "react-redux";
 
 /* STYLES */
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg, NavClick } from "./NavbarStyles";
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, NavBtnLink, NavClick, BrandLogo } from "./NavbarStyles";
 import { ButtonOrange, ButtonWhite, H1 } from '../../globalStyles';
 
 /* COMPONENTS */
@@ -42,21 +42,21 @@ const Navbar = ({ toggle, ...props }) => {
     <Nav>
       <NavbarContainer>
         <MobileIcon onClick={toggle}>
-          <FaBars />
+          <FaBars /> 
         </MobileIcon>
 
 
         <NavMenu>
           <NavItem>
-            <NavLink to={PATHS.HOMEPAGE}> OUR STORY </NavLink>
+            <NavLink to={PATHS.ABOUT}> OUR STORY </NavLink>
           </NavItem>
           <NavItem>
             <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
           </NavItem>
-        </NavMenu>
-        <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px" /> </Link>
+        
+        <BrandLogo to={PATHS.HOMEPAGE}> <img src={canele} alt="logo" height="100px" /> </BrandLogo>
 
-        <NavMenu>
+      
           {props.user ? (
             <>
               <NavItem>
@@ -86,7 +86,11 @@ const Navbar = ({ toggle, ...props }) => {
             )}
             <NavClick onClick={toggleCart}> CART({count})</NavClick>
           </NavItem>
-          <Link to={PATHS.SHOP}><ButtonOrange> Order</ButtonOrange>  </Link>
+          <NavItem>
+          <NavLink to={PATHS.SHOP} className="authLink">
+                  ORDER
+                </NavLink>
+          </NavItem>
         </NavMenu>
 
 

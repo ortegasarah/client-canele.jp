@@ -32,13 +32,8 @@ export default function Signup({ authenticate, handleSuccess }) {
       .required,
 
     password: Yup.string()
-      .required
-      .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
-      .min(8),
+      .required,
     confirmPassword: Yup.string()
-      .required
-      .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
-      .min(8),
   });
 
   const [showPassword, setShowPassword] = useState(false)

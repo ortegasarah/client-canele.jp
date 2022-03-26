@@ -5,10 +5,6 @@ export const Section = styled.section `
     flex-direction: row;
     padding: 0 4em;
 
-    /* div {
-        width: 100%;
-    } */
-
     &:nth-child(odd){
         flex-direction: row-reverse;
     }
@@ -39,11 +35,7 @@ export const TextDetail = styled.div `
 export const ProductButtonSection = styled.div `
     display: grid;
     margin: 4px 0;
-    grid-column-gap: 3rem;    /* --cluster-column-gap: 0.25rem;
-    flex-wrap: wrap;
-    margin-left: calc(var(--cluster-column-gap, 0) * -1);
-    margin-top: calc(var(--cluster-row-gap, 0) * -1);
-    margin: 4px; */
+    grid-column-gap: 3rem;
 `
 
 export const QuantityButton = styled.div`

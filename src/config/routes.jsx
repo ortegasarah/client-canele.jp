@@ -10,6 +10,7 @@ import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
 import CartPage from "../pages/CartPage";
 import SuccesOrder from "../pages/SuccesOrder";
+import About from "../pages/About";
 // import Order from "../pages/Order";
 
 const routes = (props) => {
@@ -44,6 +45,10 @@ const routes = (props) => {
     {
       path: PATHS.SHOP,
       element: <Shop {...props} />,
+    },
+    {
+      path: PATHS.ABOUT,
+      element: <About {...props} />,
     },
     {
       path: PATHS.PRODUCTDETAIL,
