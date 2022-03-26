@@ -151,7 +151,7 @@ export const AbsoluteCenter = css`
 
 
 export const DeleteButton = styled.span`
-   color: var(--orange);
+   color: var(--beige);
    text-align: center;
     display: flex;
     align-items: center;

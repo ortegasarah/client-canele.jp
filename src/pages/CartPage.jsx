@@ -24,6 +24,7 @@ import {
 const Wrapper = styled.section`
     margin: 0 auto;
     padding: 2rem;
+    text-align: center;
 `;
 
 const CartPage = () => {
@@ -59,7 +60,7 @@ const CartPage = () => {
     // This values are the props in the UI
     const amount = "5170";
     const currency = "JPY";
-    const style = { "layout": "vertical" };
+    const style = { "layout": "vertical"};
     // Custom component to wrap the PayPalButtons and handle currency changes
     const ButtonWrapper = ({ currency, showSpinner }) => {
         // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
@@ -79,6 +80,7 @@ const CartPage = () => {
 
         return (
             <>
+
                 {(showSpinner && isPending) && <div className="spinner" />}
                 <PayPalButtons
                     style={style}
@@ -98,8 +100,8 @@ const CartPage = () => {
                                 ],
                             })
                             .then((orderId) => {
-                                // Your code here after create the order
-                                return orderId;
+        
+                                return orderId
                             });
                     }}
                     onApprove={function (data, actions) {
@@ -117,20 +119,9 @@ const CartPage = () => {
 
     return (
         <Wrapper>
-            <H1>Order Summary</H1>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Item</th>
-                        {/* <th>Price</th>
-                        <th>Subtotal</th> */}
-                    </tr>
-                </tbody>
-                <tbody>
-
-                    <tr>total 円{total}</tr>
-                </tbody>
-            </table>
+            <H1>Checkout</H1>
+            {/* <p>total 円{total}</p> */}
+            
             <div>
                 {cartItems.length === 0 ? (
                     <div>
@@ -147,10 +138,22 @@ const CartPage = () => {
                 )
                 }
             </div>
-            <p>Item</p>
 
 
-
+          
+                <PayPalScriptProvider
+                    options={{
+                        "client-id": "AZXXZVtCF6o7WU-uCAOSXYKvOcCQ0unl4YkkrIjlErC14HtTrP9sZr8AzHih7PBN98KJy079RNE2k-fM",
+                        components: "buttons",
+                        currency: "JPY"
+                    }}
+                >
+                    <ButtonWrapper
+                        currency={currency}
+                        showSpinner={false}
+                    />
+                </PayPalScriptProvider>
+{/*             
             {open ? (
                 <PayPalScriptProvider
                     options={{
@@ -166,7 +169,7 @@ const CartPage = () => {
                 </PayPalScriptProvider>
             ) : (
                 <ButtonOrange onClick={() => setOpen(true)}> Checkout</ButtonOrange>
-            )}
+            )} */}
 
         </Wrapper>
 

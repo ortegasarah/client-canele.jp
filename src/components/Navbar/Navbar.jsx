@@ -48,10 +48,10 @@ const Navbar = ({ toggle, ...props }) => {
 
         <NavMenu>
           <NavItem>
-            <NavLink to={PATHS.HOMEPAGE}> OUR STORY </NavLink>
+            <NavLink to={PATHS.ABOUT}> OUR STORY </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
+            <NavLink to={PATHS.STORES}> OUR STORES </NavLink>
           </NavItem>
         </NavMenu>
         <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px" /> </Link>
