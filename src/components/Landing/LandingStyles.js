@@ -116,21 +116,3 @@ export const H2 = styled.h2 `
 
     }
 `
-
-// export const RotateImg = styled.img.attrs({
-
-// })`
-// .rotate {
-//   display: inline-block;
-//   -webkit-animation: rotate 4s linear infinite;
-//   animation: rotate 4s linear infinite;
-// }
-
-// @keyframes rotate {
-//   from {
-//       transform: rotate(0deg);
-//   }
-//   to {
-//       transform: rotate(360deg);
-//   }
-// }`
