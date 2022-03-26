@@ -13,7 +13,7 @@ import { addToCart } from "../Redux/actions/cartActions";
 
 const Wrapper = styled.section`
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem;
     /* height: 100vh; */
     display: flex;
     flex-wrap: wrap;

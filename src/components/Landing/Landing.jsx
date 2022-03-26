@@ -12,12 +12,13 @@ const Landing = () => {
       <Wrapper>
         <FirstSection>
           <TitleLanding >Crisp yet soft</TitleLanding>
-          <p>on the inside, our combination of Japanese, seasonal ingredients results in an assortment of original flavours. </p>
-          <Link to={PATHS.SHOP}><ButtonOrange >Shop Canelés</ButtonOrange></Link>
+          <p>on the inside, our combination of Japanese, seasonal ingredients results in an assortment of original flavours.
+            <Link to={PATHS.SHOP}><ButtonOrange >Shop Canelés</ButtonOrange></Link>
+          </p>
         </FirstSection>
         <LandingImg />
       </Wrapper>
-      <Marquee/>
+      <Marquee />
 
       <Wrapper>
         <LandingImgBox />

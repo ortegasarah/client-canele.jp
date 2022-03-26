@@ -10,3 +10,4 @@ export const CART = "/cart";
 export const ORDER = "/order";
 export const SUCCESS = "/ordercompleted";
 export const ABOUT = "/about"
+export const STORES = "/Stores"

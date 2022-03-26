@@ -57,7 +57,7 @@ export const Wrapper = styled.section `
   flex-direction: row;
   margin: 30px;
   align-items: center;
-  padding: 0;
+  padding: 0 2em;
 
   p {
     padding: 2rem 0;
@@ -87,7 +87,7 @@ export const Wrapper = styled.section `
 `
 
 export const TitleLanding = styled.h1 `
-  font-size: 4em;
+  font-size: 7em;
   width: 80%;
   margin: 4px 0;
   color: var(--orange);
@@ -95,9 +95,6 @@ export const TitleLanding = styled.h1 `
   line-height: 7rem;
   padding: 1rem 0;
 
-    @media screen and (max-width: 1420px){
-      font-size: 7em;
-    }
     @media screen and (max-width: 700px){
       width: 100%;
       font-size: 5em;
@@ -111,11 +108,12 @@ export const H2 = styled.h2 `
       color: var(--orange);
       margin: 0 auto;
       font-size: 40px;
+      padding: 1em;
    @media screen and (max-width: 700px){
       width: 100%;
       font-size: 2em;
       margin: 0 auto;
-      padding: 0;
+
     }
 `
 

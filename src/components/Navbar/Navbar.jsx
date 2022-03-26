@@ -51,7 +51,7 @@ const Navbar = ({ toggle, ...props }) => {
             <NavLink to={PATHS.ABOUT}> OUR STORY </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to={PATHS.HOMEPAGE}> OUR STORES </NavLink>
+            <NavLink to={PATHS.STORES}> OUR STORES </NavLink>
           </NavItem>
         
         <BrandLogo to={PATHS.HOMEPAGE}> <img src={canele} alt="logo" height="100px" /> </BrandLogo>

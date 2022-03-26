@@ -7,22 +7,27 @@ import ig05 from "../../assets/ig-05.png";
 import ig06 from "../../assets/ig-06.png";
 import ig07 from "../../assets/ig-07.png";
 import { WrapperIg, Ig } from './InstagramStyles';
-import { H1} from "../../globalStyles";
+import { H2 } from "../Landing/LandingStyles";
 
 
 const Instagram = (props) => {
     return (
         <>
-            <H1>@caneledujapon</H1>
+            <a href="https://www.instagram.com/caneledujapon/" target="_blank">
+                <H2>Follow us on instagram @caneledujapon</H2>
+                </a>
+                <a href="https://www.instagram.com/caneledujapon/" target="_blank">
+
             <WrapperIg>
-                <Ig src={ig01} alt="" />
-                <Ig src={ig02} alt="" />
-                <Ig src={ig03} alt="" />
-                <Ig src={ig04} alt="" />
-                <Ig src={ig05} alt="" />
-                <Ig src={ig06} alt="" />
-                <Ig src={ig07} alt="" />
+                    <Ig src={ig01} alt="" />
+                    <Ig src={ig02} alt="" />
+                    <Ig src={ig03} alt="" />
+                    <Ig src={ig04} alt="" />
+                    <Ig src={ig05} alt="" />
+                    <Ig src={ig06} alt="" />
+                    <Ig src={ig07} alt="" />
             </WrapperIg>
+            </a>
         </>
     )
 }
