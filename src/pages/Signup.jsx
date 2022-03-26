@@ -25,18 +25,18 @@ const InputComponent = ({ label, ...props }) => {
 export default function Signup({ authenticate, handleSuccess }) {
 
   const schema = Yup.object().shape({
-    firstName: Yup.string().required("Required fields"),
-    lastName: Yup.string().required("Required fields"),
+    firstName: Yup.string().required,
+    lastName: Yup.string().required,
     email: Yup.string()
       .email("Must be a valid email address")
-      .required("Required fiels"),
+      .required,
 
     password: Yup.string()
-      .required("Required fields")
+      .required
       .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
       .min(8),
     confirmPassword: Yup.string()
-      .required("Required fields")
+      .required
       .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]$")
       .min(8),
   });

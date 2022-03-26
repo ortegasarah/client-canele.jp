@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { denormalizeData } from '../utils/formatter'
 /* STYLES */
-import CartItem from '../components/CartItem/CartItem'
-import { ButtonOrange } from '../globalStyles';
+import CartItemPage from '../components/CartItem/CartItemPage'
+import { ButtonOrange, H1 } from '../globalStyles';
+import styled from "styled-components";
 
 import {  } from "../";
 /* ACTIONS */
@@ -19,6 +20,11 @@ import {
     usePayPalScriptReducer
 } from "@paypal/react-paypal-js";
 
+
+const Wrapper = styled.section`
+    margin: 0 auto;
+    padding: 2rem;
+`;
 
 const CartPage = () => {
 
@@ -52,7 +58,7 @@ const CartPage = () => {
 
     /* PAYPAL */
     // This values are the props in the UI
-    const amount = "2";
+    const amount = "5170";
     const currency = "JPY";
     const style = { "layout": "vertical" };
     // Custom component to wrap the PayPalButtons and handle currency changes
@@ -111,15 +117,9 @@ const CartPage = () => {
     }
 
 
-
-        ;
-    // const handleClick = (product) => {
-    //     dispatch(addProduct(product));
-    // };
-
     return (
-        <>
-            <div>Your order</div>
+        <Wrapper>
+            <H1>Order Summary</H1>
             <table>
                 <tbody>
                     <tr>
@@ -135,15 +135,17 @@ const CartPage = () => {
             </table>
             <div>
                 {cartItems.length === 0 ? (
-                    <p>Your cart is empty
-                        <Link to="/">Go Back</Link></p>
-                ) : cartItems.map(product =>
-                    <CartItem
+                    <div>
+                    <p>Your cart is empty</p>
+                        <Link to="/">Go Back</Link>
+                        </div>
+                ) : (cartItems.map(product =>
+                    <CartItemPage
                         product={product.info}
                         key={product}
                         qtyChangeHandler={qtyChangeHandler}
                         removeHandler={removeHandler}
-                    />
+                    />)
                 )
                 }
             </div>
@@ -168,7 +170,7 @@ const CartPage = () => {
                 <ButtonOrange onClick={() => setOpen(true)}> Checkout</ButtonOrange>
             )}
 
-        </>
+        </Wrapper>
 
     )
 }

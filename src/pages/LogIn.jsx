@@ -36,10 +36,10 @@ const LogIn = ({ handleSuccess, authenticate }) => {
 
 
   const schema = Yup.object().shape({
-    name: Yup.string().required("Required fiels"),
+    name: Yup.string().required,
     email: Yup.string()
       .email("Must be a valid email address")
-      .required("Required fiels")
+      .required
   });
 
 
@@ -70,7 +70,7 @@ const LogIn = ({ handleSuccess, authenticate }) => {
       <SectionImg>
       </SectionImg>
       <SectionForm>
-        <H1>Log In right</H1>
+        <H1>Log In</H1>
         <Formik
           initialValues={{
             name: "",

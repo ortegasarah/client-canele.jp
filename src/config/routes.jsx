@@ -9,6 +9,7 @@ import Shop from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
 import * as PATHS from "../utils/paths";
 import CartPage from "../pages/CartPage";
+import SuccesOrder from "../pages/SuccesOrder";
 // import Order from "../pages/Order";
 
 const routes = (props) => {
@@ -50,6 +51,10 @@ const routes = (props) => {
     }, {
       path: PATHS.CART,
       element: user ?<CartPage {...props} /> : <Navigate to={PATHS.LOGINPAGE} replace />
+    },
+    , {
+      path: PATHS.SUCCESS,
+      element: user ?<SuccesOrder {...props} /> : <Navigate to={PATHS.LOGINPAGE} replace />
     },
     {
       path: PATHS.PROTECTEDPAGE,

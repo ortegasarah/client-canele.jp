@@ -9,8 +9,8 @@ import { denormalizeData, normalizeData } from '../../utils/formatter';
 import { useSelector } from "react-redux";
 
 /* STYLES */
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg } from "./NavbarStyles";
-import GlobalStyle, { ButtonOrange, ButtonWhite } from '../../globalStyles';
+import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg, NavClick } from "./NavbarStyles";
+import { ButtonOrange, ButtonWhite, H1 } from '../../globalStyles';
 
 /* COMPONENTS */
 import Modal from "../Modal/Modal";
@@ -19,8 +19,6 @@ import Cart from "../Cart/Cart";
 import CartBtn from "../CartBtn";
 
 /* IMAGES */
-import signup from "../../assets/avatar-profile-user-account.svg";
-import cart from "../../assets/shopping-bag.svg";
 import canele from "../../assets/canele-illu.png";
 
 
@@ -49,10 +47,6 @@ const Navbar = ({ toggle, ...props }) => {
 
 
         <NavMenu>
-
-          <NavItem>
-            <NavLink to={PATHS.SHOP}> SHOP </NavLink>
-          </NavItem>
           <NavItem>
             <NavLink to={PATHS.HOMEPAGE}> OUR STORY </NavLink>
           </NavItem>
@@ -62,46 +56,38 @@ const Navbar = ({ toggle, ...props }) => {
         </NavMenu>
         <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px" /> </Link>
 
-
-        <NavBtn>
+        <NavMenu>
           {props.user ? (
             <>
-              <NavLink to={PATHS.USERPROFILE}>
-                Hi
-              </NavLink>
-              <ButtonOrange onClick={props.handleLogout}> Logout
-              </ButtonOrange>
+              <NavItem>
+                <NavLink to={PATHS.USERPROFILE}>
+                  {props.user.firstName}
+                </NavLink>
+              </NavItem>
             </>
           ) : (
             <>
-              {/* <Link to={PATHS.SIGNUPPAGE} className="authLink">
-                <img src={signup} alt="signup" height="40px" />
-              </Link> */}
-              <Link to={PATHS.LOGINPAGE} className="authLink">
-                Account
-              </Link>
-              {showModal && (
-                <Modal toggleModal={toggleModal}>
-                  <ModalInner />
-                </Modal>
-              )}
-
-              {/* <ButtonOrange onClick={toggleModal}>Account </ButtonOrange> */}
+              <NavItem>
+                <NavLink to={PATHS.LOGINPAGE} className="authLink">
+                  ACCOUNT
+                </NavLink>
+              </NavItem>
 
             </>
           )}
 
 
           {/* CART SIDE TOGGLE */}
-          {showCart && (
-            <Modal toggleModal={toggleCart}>
-              <Cart />
-            </Modal>
-          )}
-          <h1 onClick={toggleCart}> Cart({count})</h1>
-
+          <NavItem>
+            {showCart && (
+              <Modal toggleModal={toggleCart}>
+                <Cart />
+              </Modal>
+            )}
+            <NavClick onClick={toggleCart}> CART({count})</NavClick>
+          </NavItem>
           <Link to={PATHS.SHOP}><ButtonOrange> Order</ButtonOrange>  </Link>
-        </NavBtn>
+        </NavMenu>
 
 
         {/* 

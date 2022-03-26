@@ -17,11 +17,6 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 999;
   background-color: var(--beige);
-  /* background: url(${img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh; */
-
   @media screen and (max-width: 960px) {
     transition: 0,8s all ease;
   }
@@ -105,11 +100,8 @@ text-decoration: none;
 padding: 0 1rem;
 height: 100%;
 cursor: pointer;
-
-&.active {
-  border-bottom: 3px solid blue;
-}
 `
+
 export const NavLink = styled(LinkR)`
   display:inline-block;
   cursor:pointer;
@@ -122,6 +114,26 @@ export const NavLink = styled(LinkR)`
   no-repeat;
   transition: 0.3s, background-position 0s 0.3s;
 
+  &:hover {
+    --d: 100%;
+    --p: 100%;
+  }
+  &:a:hover {
+    text-decoration: none;
+  }
+`
+export const NavClick = styled.p`
+display:inline-block;
+  cursor:pointer;
+  margin: 0;
+  padding: 0 10px;
+  list-style: none;
+  background: 
+    linear-gradient(currentColor 0 0) 
+    var(--p, 0) 100% /var(--d, 0) 2px 
+  no-repeat;
+  transition: 0.3s, background-position 0s 0.3s;
+  font-size: 1rem;
   &:hover {
     --d: 100%;
     --p: 100%;

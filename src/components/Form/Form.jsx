@@ -18,10 +18,10 @@ const InputComponent = ({ label, ...props }) => {
 
 const FormComponent = ({ handleSuccess }) => {
   const schema = Yup.object().shape({
-    name: Yup.string().required("Required fiels"),
+    name: Yup.string().required,
     email: Yup.string()
       .email("Must be a valid email address")
-      .required("Required fiels")
+      .required
   });
   return (
     <Formik
