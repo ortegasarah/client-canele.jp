@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { AbsoluteCenter } from "../../globalStyles";
 
 export const Modal = styled.div`
- ${AbsoluteCenter};
   animation: glow 1s forwards;
   background: #fbfbfb;
   background: var(--yellow);
   box-sizing: border-box;
   padding: 60px;
+  height: 100vh;
+  right: 0;
+  top: 0;
   max-width: 800px;
-  width: calc(100vw - 60px);
+  width: 30%;
   z-index: 3;
   position: fixed;
 

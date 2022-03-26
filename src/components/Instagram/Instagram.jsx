@@ -7,14 +7,14 @@ import ig05 from "../../assets/ig-05.png";
 import ig06 from "../../assets/ig-06.png";
 import ig07 from "../../assets/ig-07.png";
 import { WrapperIg, Ig } from './InstagramStyles';
-import { H2 } from "../Landing/LandingStyles";
+import { H1 } from "../../globalStyles";
 
 
 const Instagram = (props) => {
     return (
         <>
             <a href="https://www.instagram.com/caneledujapon/" target="_blank">
-                <H2>Follow us on instagram @caneledujapon</H2>
+                <H1>Follow us on instagram @caneledujapon</H1>
                 </a>
                 <a href="https://www.instagram.com/caneledujapon/" target="_blank">
 

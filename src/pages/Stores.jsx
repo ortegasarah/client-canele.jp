@@ -11,7 +11,7 @@ const Wrapper = styled.section`
 export default function Stores() {
     return (
         <Wrapper>
-            <H1>COME VISIT US!</H1>
+            <H1>Come visit us!</H1>
             <Delivery />
         </Wrapper>
     )
