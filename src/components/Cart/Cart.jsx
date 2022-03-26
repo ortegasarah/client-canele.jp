@@ -1,7 +1,7 @@
 /* COMPONENTS */
 import { ButtonOrange, ButtonWhite, H1, DeleteButton } from "../../globalStyles"
 import CartItem from "../CartItem/CartItem"
-import { CartSection, CartContainer } from "./CartStyles"
+import { CartSection, CartContainer, Total } from "./CartStyles"
 import { useSelector, useDispatch } from 'react-redux'
 import { removeFromCart } from '../../Redux/actions/cartActions'
 import { cartReducers } from '../../Redux/reducers/cartRerducers'
@@ -39,25 +39,23 @@ const Cart = () => {
                         </>
                     ) :
                         (
+                            cartItems.map((products, idx) =>(
+                            <CartItem
+                                key={products.info._id}
+                                removeProduct={() => removeProduct(products.info._id, idx)}
+                                {...products.info}
 
-                            cartItems.map((products, idx) => (
-                                <CartItem
-                                    key={products.info._id}
-                                    removeProduct={() => removeProduct(products.info._id, idx)}
-                                    {...products.info}
-
-                                />
-                            ))
-
-
-
-                        )
-                    }
-                    <p>Total 円{total}</p>
-                    <Link to={PATHS.CART} >
-                        <ButtonWhite>Checkout</ButtonWhite>
-                    </Link>
-                </CartContainer>
+                            />
+                            )))
+                        
+                    }</CartContainer>
+                    <Total>
+                            <p>Total 円{total}</p>
+                            <Link to={PATHS.CART} >
+                                <ButtonWhite>Checkout</ButtonWhite>
+                            </Link>
+                            </Total>
+                
 
                 {/* <Link to={PATHS.CART}>View your cart</Link> */}
             </CartSection>

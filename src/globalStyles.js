@@ -37,7 +37,7 @@ import { Link as LinkB } from "react-router-dom";
     }
 
     a:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
 `;
  
@@ -160,6 +160,7 @@ export const DeleteButton = styled.span`
     cursor: pointer;
     inline-size: fit-content;
     height: 3em;
+
    `
 export default GlobalStyle
 

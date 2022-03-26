@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { Tabs, Tab, TabPanel } from "../components/Tabs/Tabs";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom'
-
-
+import Order from "../components/Order/Order";
+import { ButtonOrange, H1 } from "../globalStyles";
+import { StylizedTab } from "../components/Tabs/TabsStyles";
+import { H2 } from "../components/Landing/LandingStyles";
 
 
 
@@ -12,6 +14,7 @@ import { useParams, Link } from 'react-router-dom'
 const TabsContainer = styled.div`
   display: flex;
   padding: 5rem 10rem;
+  background-color: var(--orange);
 `;
 
 const TabPanelContainer = styled.div`
@@ -20,7 +23,11 @@ const TabPanelContainer = styled.div`
 
 const Wrapper = styled.section`
     display: flex;
-  height: 100vh;
+    padding:2em;
+    height: 80vh;
+`
+const HeaderProfil = styled.div`
+  padding: 2em;
 `
 const UserProfile = (props) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -31,35 +38,42 @@ const UserProfile = (props) => {
 
   return (
     <div className="App">
-      <h1>ACCOUNT</h1>
-      <p>Hello</p>
+      <HeaderProfil>
+        <H1>MY ACCOUNT</H1>
+        <H2>Hello {props.user.firstName}</H2>
+      </HeaderProfil>
+
       <Wrapper>
         <TabsContainer>
           <Tabs selectedTab={activeTab} onChange={handleChange}>
             <Tab label="ACCOUNT OVERVIEW" value={1}></Tab>
             <Tab label="MY ORDERS" value={2}></Tab>
-            <Tab label="MY ADDRESSES" value={3}></Tab>
-            <Tab label="SIGN OUT" onClick={props.handleLogout}></Tab>
           </Tabs>
         </TabsContainer>
+        
         <TabPanelContainer>
           <TabPanel value={activeTab} selectedIndex={1}>
-            <h1>Tab 1</h1>
-            <p>View your latest orders</p>
-            <p>View your addresses</p>
-            <a href="https://www.instagram.com/caneledujapon/" target="_blank">Follow us on Instagram</a>
+            <h1>ACCOUNT OVERVIEW</h1>
+            <p>{props.user.firstName}</p>
+            <p>{props.user.lastName}</p>
+            <p>{props.user.email}</p>
+            <ButtonOrange onClick={props.handleLogout}>LOG OUT </ButtonOrange>
+            <p><a href="https://www.instagram.com/caneledujapon/" target="_blank">Follow us on Instagram</a></p>
           </TabPanel>
+
+
           <TabPanel value={activeTab} selectedIndex={2}>
-            <h1>Tab 2</h1>
-            <p>You haven't placed any orders yet.</p>
+            <h1>MY ORDERS</h1>
+            {/* {getOrders.length === 0 ? (
+              <>
+                <p>You haven't placed any orders yet.</p>
+              </>
+            ) : <Order />} */}
+            <Order />
           </TabPanel>
-          <TabPanel value={activeTab} selectedIndex={3}>
-            <h1>Tab 3</h1>
-            <p>You don't have any addresses yet</p>
-          </TabPanel>
-          <TabPanel value={activeTab} selectedIndex={4}>
-            <h1>Tab 4</h1>
-          </TabPanel>
+
+
+
         </TabPanelContainer>
       </Wrapper>
     </div>

@@ -7,11 +7,10 @@ export const TabHeaderContainer = styled.div`
 `;
 
 
-export const StylizedTab = styled.button`
-  color: #000;
+export const StylizedTab = styled.h1`
+  color: var(--beige);
   width: 100%;
   padding: 20px 0px;
-  font-size: 1.25rem;
   background-color: transparent;
   border: none;
   text-align: left;
