@@ -51,7 +51,6 @@ const CartPage = () => {
             product: item.info._id,
         }));
         const order = { items, total };
-        console.log(order);
         dispatch(createOrder(order));
     }
 
@@ -106,7 +105,6 @@ const CartPage = () => {
                     onApprove={function (data, actions) {
                         return actions.order.capture().then(function (details) {
                             handleCreateOrder()
-                            console.log("details are", details)
 
 
                         });

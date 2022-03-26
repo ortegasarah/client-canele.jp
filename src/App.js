@@ -47,7 +47,6 @@ export default function App() {
 
   useEffect(() => {
     getUserLogged().then((res) => {
-      console.log("res", res)
       if (!res.status) {
         return setIsLoading(false);
       }
