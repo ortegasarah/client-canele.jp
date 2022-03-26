@@ -43,14 +43,15 @@ import { Link as LinkB } from "react-router-dom";
  
 export const H1 = styled.h1`
     margin: 0 auto;
-    padding: 10px 0 ;
+    padding: 10px 5px 10px 0;
     font-weight: 200;
-    font-size: 7rem;
+    font-size: 6rem;
     text-align: left;
     color: var(--orange);
+    text-align: center;
 
-    @media screen and (max-width: 1310px) {
-        font-size: 5rem;  
+    @media screen and (max-width: 1150px) {
+        font-size: 4rem;  
     }
     @media screen and (max-width: 760px) {
         font-size:3rem;  
@@ -150,7 +151,7 @@ export const AbsoluteCenter = css`
 
 
 export const DeleteButton = styled.span`
-   color: var(--orange);
+   color: var(--beige);
    text-align: center;
     display: flex;
     align-items: center;

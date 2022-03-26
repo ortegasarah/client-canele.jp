@@ -47,7 +47,6 @@ export default function App() {
 
   useEffect(() => {
     getUserLogged().then((res) => {
-      console.log("res", res)
       if (!res.status) {
         return setIsLoading(false);
       }
@@ -84,7 +83,7 @@ export default function App() {
       <>      
       <GlobalStyle />
       <ScrollToTop />
-      {showModal && (
+      {/* {showModal && (
         <Modal toggleModal={toggleModal}>
           <ModalInner />
         </Modal>
@@ -94,7 +93,8 @@ export default function App() {
       :
       <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
       }
-      
+       */}
+        <Navbar toggle={toggle} handleLogout={handleLogout} user={user} />
       <Routes>
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />

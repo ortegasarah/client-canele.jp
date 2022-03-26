@@ -23,7 +23,9 @@ export const LandingImgBox = styled.div `
   background-position: center center;
   width: 40%;
   height: 700px;
-  
+  @media screen and (max-width: 1150px){
+    width: 100%;
+    }
   @media screen and (max-width: 700px){
     width: 100%;
   }
@@ -45,7 +47,9 @@ export const FirstSection = styled.div `
   flex-direction: column;
   width: 45%;
   margin: 0 auto;
-
+  @media screen and (max-width: 1150px){
+    width: 100%;
+    }
   @media screen and (max-width: 700px){
     width: 100%;
     margin: 0 auto;
@@ -57,7 +61,7 @@ export const Wrapper = styled.section `
   flex-direction: row;
   margin: 30px;
   align-items: center;
-  padding: 0;
+  padding: 0 2em;
 
   p {
     padding: 2rem 0;
@@ -65,6 +69,7 @@ export const Wrapper = styled.section `
     color: var(--orange);
 
   }
+
   @media screen and (max-width: 700px){
     flex-direction: column;
     margin: 20px auto;
@@ -87,7 +92,7 @@ export const Wrapper = styled.section `
 `
 
 export const TitleLanding = styled.h1 `
-  font-size: 4em;
+  font-size: 7em;
   width: 80%;
   margin: 4px 0;
   color: var(--orange);
@@ -95,11 +100,7 @@ export const TitleLanding = styled.h1 `
   line-height: 7rem;
   padding: 1rem 0;
 
-    @media screen and (max-width: 1420px){
-      font-size: 7em;
-    }
     @media screen and (max-width: 700px){
-      width: 100%;
       font-size: 5em;
       margin: 2rem auto;
       padding:  0;
@@ -111,28 +112,10 @@ export const H2 = styled.h2 `
       color: var(--orange);
       margin: 0 auto;
       font-size: 40px;
+      padding: 1em;
    @media screen and (max-width: 700px){
-      width: 100%;
-      font-size: 4em;
+      font-size: 2em;
       margin: 0 auto;
-      padding: 0;
+
     }
 `
-
-// export const RotateImg = styled.img.attrs({
-
-// })`
-// .rotate {
-//   display: inline-block;
-//   -webkit-animation: rotate 4s linear infinite;
-//   animation: rotate 4s linear infinite;
-// }
-
-// @keyframes rotate {
-//   from {
-//       transform: rotate(0deg);
-//   }
-//   to {
-//       transform: rotate(360deg);
-//   }
-// }`

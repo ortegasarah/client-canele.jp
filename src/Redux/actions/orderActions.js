@@ -19,7 +19,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
             status,
             errorMessage
         } = await createOrdertWs(order)
-        console.log(data, status, errorMessage)
         if (status) {
             dispatch({
                 type: actionTypes.CREATE_ORDER_SUCCESS,

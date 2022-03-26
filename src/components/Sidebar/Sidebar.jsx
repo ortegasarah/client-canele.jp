@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import * as PATHS from "../../utils/paths";
+import { denormalizeData } from '../../utils/formatter';
 
 /* STYLES */
 import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, SidebarLink, SidebarRoute, SideBtnWrap } from "./SidebarStyles";
@@ -17,9 +18,6 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
       <SidebarWrapper>
-        {/* <Link to={PATHS.AUTH}> */}
-          <img src={cart} alt="cart" height="40px" />
-        {/* </Link> */}
         <SidebarMenu>
           <SidebarLink to="/" onClick={toggle}> SHOP </SidebarLink>
           <SidebarLink to="/" onClick={toggle}> OUR STORY  </SidebarLink>

@@ -11,10 +11,17 @@ import ProductDetail from "./ProductDetail";
 import { Link } from "react-router-dom";
 import { addToCart } from "../Redux/actions/cartActions";
 
+
+
+const WrapperSection = styled.section`
+margin: 0 auto;
+padding: 2rem 4rem;
+justify-content: center;
+
+`;
+
 const Wrapper = styled.section`
     margin: 0 auto;
-    padding: 2rem 0;
-    /* height: 100vh; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -41,7 +48,7 @@ const Shop = () => {
     };
 
     return (
-        <div>
+        <WrapperSection>
             <H1>カヌレ Canelés</H1>
             <H1>ドリンク Drinks</H1>
             <Wrapper>
@@ -53,7 +60,7 @@ const Shop = () => {
                         addToCartHandler={addToCartHandler}
                     />))}
             </ Wrapper >
-        </div>
+        </WrapperSection>
 
 
     )

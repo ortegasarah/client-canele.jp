@@ -17,6 +17,7 @@ export const Marquee = styled.div`
     flex-wrap: nowrap;
     white-space: nowrap;
     min-width: 100%;
+    --marquee-duration: 8.69742s;
 `
 
 

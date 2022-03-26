@@ -14,9 +14,9 @@ export const SectionFooter = styled.section `
     z-index: -100000;
 
     h3{
-        font-size: 3em;
+        font-size: 1.7em;
         @media (max-width: 1590px) {
-            font-size: 2em;
+            font-size: 1.7em;
         }
         @media (max-width: 1140px) {
             font-size: 1.4em;
@@ -29,9 +29,9 @@ export const SectionFooter = styled.section `
     ul {
         list-style: none;
         margin: 20px 0;
-        font-size: 2.5em;
+        font-size: 2em;
         @media (max-width: 1590px) {
-            font-size: 1.7em;
+            font-size: 1.4em;
             margin: 15px 0;
         }
         @media (max-width: 1140px) {
@@ -58,30 +58,43 @@ export const WrapperFooter = styled.div `
     display: flex;
     flex-direction:row;
     width: 100%;
+    justify-content: flex-end;
 
+@media screen and (max-width: 730px) {
+    flex-wrap: wrap;
+    justify-content: center;
+}
 `
 
 export const ColummFooter = styled.div `
     display: flex;
     flex-direction: column;
     padding:3em;
-    width: 100%;
+    a { color: var(--beige)}
     @media (max-width: 860px) {
-        padding: 0 ;
+        padding: 2em 0 0 0 ;
         margin: 0 auto;
         text-align:center;
-
     }
 `
 
-export const LogoFooter = styled(Logo2SVG) `
+export const LogoFooter = styled(Logo2SVG)
+`
     width: 25%; 
     max-width: 400px;
     @media (max-width: 1140px) {
        width:20%;
     }
     @media screen and (max-width: 400px){
-        width:40%;
-        margin-right: auto;
+        width:30%;
     }
+`
+
+
+export const SocialsIcon = styled.div `
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  padding: 3em;
+  a { color: var(--beige)}
 `

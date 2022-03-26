@@ -38,24 +38,26 @@ const Cart = () => {
                             <p><Link to="/shop">START YOUR ORDER</Link></p>
                         </>
                     ) :
-                        (
-                            cartItems.map((products, idx) =>(
-                            <CartItem
-                                key={products.info._id}
-                                removeProduct={() => removeProduct(products.info._id, idx)}
-                                {...products.info}
-
-                            />
-                            )))
                         
-                    }</CartContainer>
+                            cartItems.map((products, idx) => (
+                                <CartItem
+                                    key={products.info._id}
+                                    removeProduct={() => removeProduct(products.info._id, idx)}
+                                    {...products.info}
+
+                                />
+
+                            )
+                            )
+                    }
                     <Total>
-                            <p>Total 円{total}</p>
-                            <Link to={PATHS.CART} >
-                                <ButtonWhite>Checkout</ButtonWhite>
-                            </Link>
-                            </Total>
-                
+                                <p>Total 円{total}</p>
+                                <Link to={PATHS.CART} >
+                                    <ButtonWhite>Checkout</ButtonWhite>
+                                </Link>
+                            </Total></CartContainer>
+
+
 
                 {/* <Link to={PATHS.CART}>View your cart</Link> */}
             </CartSection>
