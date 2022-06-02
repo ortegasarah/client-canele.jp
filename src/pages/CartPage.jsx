@@ -19,6 +19,7 @@ import {
     PayPalButtons,
     usePayPalScriptReducer
 } from "@paypal/react-paypal-js";
+import SuccesOrder from './SuccesOrder';
 
 
 const Wrapper = styled.section`

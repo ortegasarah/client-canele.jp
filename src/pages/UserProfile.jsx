@@ -64,7 +64,9 @@ const UserProfile = (props) => {
 
           <TabPanel value={activeTab} selectedIndex={2}>
             <h1>MY ORDERS</h1>
-            {/* {getOrders.length === 0 ? (
+            <p>You haven't placed any orders yet.</p>
+{/* 
+            {getOrders.length === 0 ? (
               <>
                 <p>You haven't placed any orders yet.</p>
               </>
