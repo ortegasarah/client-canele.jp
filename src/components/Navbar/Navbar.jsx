@@ -9,7 +9,7 @@ import { denormalizeData, normalizeData } from '../../utils/formatter';
 import { useSelector } from "react-redux";
 
 /* STYLES */
-import { Nav, LogoNav, NavbarContainer, MobileIcon, NavMenu, NavItem, NavLink, Logo, HeroImg, NavClick } from "./NavbarStyles";
+import { Nav, LogoNav, NavbarContainer, MobileIcon, NavMenu, NavItem, NavLink, Logo, NavClick } from "./NavbarStyles";
 import { ButtonOrange, ButtonWhite, H1 } from '../../globalStyles';
 
 /* COMPONENTS */
