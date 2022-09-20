@@ -4,7 +4,6 @@ import img from '../../assets/kisetsu.jpeg'
 import { ReactComponent as LogoSVG} from '../../assets/logo-name.svg'
 
 export const Nav = styled.nav`
-  /* padding: 2em 0; */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -43,31 +42,29 @@ export const NavbarContainer = styled.div `
   /* height: 80px; */
   z-index: 1;
   /* width: 100px; */
-  padding: 0 24px;
+  padding: 1rem;
   max-width: 1100;
   align-items: center;
 `
-export const NavLogo = styled(LinkR)`
-  display: flex;
-  color: #fff;
-  justify-self: flex-start;
-  img {
-    width: 300px;
-  }
-  /* width: 10px; */
-  @media screen and (max-width: 760px){
-   
+
+export const LogoNav = styled.div`
+position: relative;
+
+@media screen and (min-width: 768px){
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50px);
 }
 `
+
 
 export const MobileIcon = styled.div`
 display: none;
 @media screen and (max-width: 768px){
   display: block;
   position: absolute;
-  top: 0;
   right: 0;
-  transform: translate(-100%, 60%);
+  transform: translate(-100%,25%);
   font-size: 1.8rem;
   cursor: pointer;
   color: #000;
@@ -78,7 +75,7 @@ display: flex;
 align-items: center;
 list-style: none;
 text-align: center;
-margin-right: -22px;
+/* margin-right: -22px; */
 @media screen and (max-width: 760px){
   display: none;
 }
@@ -87,9 +84,9 @@ margin-right: -22px;
 export const NavItem = styled.li`
 height: 80px;
 color: #000;
-display: flex;
+/* display: flex;
 align-items: center;
-text-decoration: none;
+text-decoration: none; */
 padding: 0 1rem;
 height: 100%;
 cursor: pointer;
@@ -134,11 +131,3 @@ display:inline-block;
     text-decoration: none;
   }
 `
-
-export const NavBtn = styled.nav`
-  display: flex;
-  align-items:center;
-  
-  @media screen and (max-width: 768px){
-    display: none;
-  }`

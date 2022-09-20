@@ -9,7 +9,7 @@ import { denormalizeData, normalizeData } from '../../utils/formatter';
 import { useSelector } from "react-redux";
 
 /* STYLES */
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLink, NavBtn, Logo, CenterLogo, HeroImg, NavClick } from "./NavbarStyles";
+import { Nav, LogoNav, NavbarContainer, MobileIcon, NavMenu, NavItem, NavLink, Logo, NavClick } from "./NavbarStyles";
 import { ButtonOrange, ButtonWhite, H1 } from '../../globalStyles';
 
 /* COMPONENTS */
@@ -54,7 +54,7 @@ const Navbar = ({ toggle, ...props }) => {
             <NavLink to={PATHS.STORES}> OUR STORES </NavLink>
           </NavItem>
         </NavMenu>
-        <Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px" /> </Link>
+        <LogoNav><Link to={PATHS.HOMEPAGE}>  <img src={canele} alt="logo" height="100px" /> </Link></LogoNav>
 
         <NavMenu>
           {props.user ? (
@@ -99,11 +99,7 @@ const Navbar = ({ toggle, ...props }) => {
 
 
       </NavbarContainer>
-      {/* <CenterLogo><Logo /></CenterLogo> */}
-      {/* { location.pathname === "/" ? 
-      <HeroImg>holaaaa</HeroImg>
-      :
-      <p>hello</p>} */}
+     
     </Nav>
   );
 };
